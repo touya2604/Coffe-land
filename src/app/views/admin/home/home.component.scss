@@ -29,9 +29,7 @@
   // background-color: black;
 }
 
-.product-slide .carousel-inner img {
+.product-slide .carousel-inner .carousel-item img {
   object-fit: cover;
   object-position: center;
-  width: 100%;
-  height: 100%;
 }
