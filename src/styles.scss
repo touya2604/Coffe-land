@@ -2,6 +2,10 @@
 $primary: #900;
 $enable-shadows: true;
 $prefix: "mo-";
-
+$icon-link-gap: 0.375rem;
+$icon-link-underline-offset: 0.25em;
+$icon-link-icon-size: 2em;
+$icon-link-icon-transition: 0.2s ease-in-out transform;
+$icon-link-icon-transform: translate3d(0.25em, 0, 0);
 // Then import Bootstrap
 @import "bootstrap/scss/bootstrap";

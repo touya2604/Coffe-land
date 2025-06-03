@@ -66,62 +66,53 @@
   </div>
 </section>
 <section class="food">
-  <h1>Thức ăn</h1>
+  <h1 class="text-center fw-bold text-uppercase mb-4 p-3 bg-light-brown">
+    Thức ăn
+  </h1>
   <div class="container best-seller">
     <h2>Best Seller</h2>
-    <div class="row mx-auto">
-      <div class="col-3">
-        <div class="card">
-          <img
-            src="assets/placeholder.png"
-            class="card-img-top"
-            alt="./food-placehoder"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <button class="btn btn-primary" type="button">Xem chi tiết</button>
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row mx-auto">
+            @for (product of products | slice:0:4; track product.id){
+            <div class="col-3">
+              <div class="card">
+                <img
+                  [src]="product.img"
+                  class="card-img-top"
+                  alt="./food-placehoder"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <button class="btn btn-primary" type="button">
+                    Xem chi tiết
+                  </button>
+                </div>
+              </div>
+            </div>
+            }
           </div>
         </div>
       </div>
-      <div class="col-3">
-        <div class="card">
-          <img
-            src="assets/placeholder.png"
-            class="card-img-top"
-            alt="./food-placehoder"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <button class="btn btn-primary" type="button">Xem chi tiết</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="card">
-          <img
-            src="assets/placeholder.png"
-            class="card-img-top"
-            alt="./food-placehoder"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <button class="btn btn-primary" type="button">Xem chi tiết</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="card">
-          <img
-            src="assets/placeholder.png"
-            class="card-img-top"
-            alt="./food-placehoder"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <button class="btn btn-primary" type="button">Xem chi tiết</button>
-          </div>
-        </div>
-      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
   <div class="container my-5 products">
@@ -167,7 +158,9 @@
   </div>
 </section>
 <section class="drink">
-  <h1>Đồ uống</h1>
+  <h1 class="text-center fw-bold text-uppercase my-4 p-3 bg-light-brown">
+    Đồ uống
+  </h1>
   <div class="container best-seller">
     <div class="row mx-auto">
       <div class="col-3">

@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { Products } from '../../../mock/product.mock';
+import { SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [SlicePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  products = Products;
+}
