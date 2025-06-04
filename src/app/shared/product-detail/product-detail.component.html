@@ -1,0 +1,47 @@
+<div
+  class="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-50 z-3"
+  style="min-height: 100vh"
+>
+  <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+    <div class="card shadow-lg rounded-4 overflow-hidden">
+      <div class="row g-0 align-items-center">
+        <div class="col-12 col-md-5">
+          <img
+            [src]="imagePath"
+            alt=""
+            class="img-fluid object-fit-cover w-100"
+            style="height: 220px"
+          />
+        </div>
+        <div class="col-12 col-md-7">
+          <div class="card-body text-center text-md-start">
+            <h4 class="card-title fw-bold mb-3">{{ selectedProduct?.name }}</h4>
+            <p class="card-text mb-2">
+              Giới thiệu: {{ selectedProduct?.desc }}
+            </p>
+            <p class="card-text text-primary fw-semibold">
+              Giá bán:
+              {{
+                selectedProduct?.price | currency : "VND" : "symbol" : "1.0-0"
+              }}
+            </p>
+            <button
+              (click)="onAddToCart()"
+              class="btn btn-outline-primary rounded-pill mt-3 me-3 px-4"
+              type="button"
+            >
+              Thêm vào giỏ hàng
+            </button>
+            <button
+              (click)="closePopup()"
+              class="btn btn-outline-primary rounded-pill mt-3 px-4"
+              type="button"
+            >
+              Đóng
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

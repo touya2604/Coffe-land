@@ -1,9 +1,16 @@
+@if (check===true) {
+<app-product-detail
+  [productId]="selectedId"
+  (newCheck)="onHandleClosePopup()"
+></app-product-detail>
+}
 <section class="product-slide">
   <div
     id="carouselExampleIndicators"
     class="carousel slide"
     data-bs-ride="carousel"
-    data-bs-interval="4000"
+    data-bs-interval="2000"
+    data-bs-pause="false"
   >
     <div class="carousel-indicators">
       <button
@@ -109,6 +116,7 @@
                 <div class="card-body p-2 text-center">
                   <h6 class="card-title mb-2 fw-bold">{{ product.name }}</h6>
                   <button
+                    (click)="onHandleViewDetail(product.id)"
                     class="btn btn-sm btn-outline-primary rounded-pill"
                     type="button"
                   >
@@ -173,6 +181,7 @@
                 <div class="card-body p-2 text-center">
                   <h6 class="card-title mb-2 fw-bold">{{ product.name }}</h6>
                   <button
+                    (click)="onHandleViewDetail(product.id)"
                     class="btn btn-sm btn-outline-primary rounded-pill"
                     type="button"
                   >
@@ -237,6 +246,7 @@
                 <div class="card-body p-2 text-center">
                   <h6 class="card-title mb-2 fw-bold">{{ product.name }}</h6>
                   <button
+                    (click)="onHandleViewDetail(product.id)"
                     class="btn btn-sm btn-outline-primary rounded-pill"
                     type="button"
                   >
