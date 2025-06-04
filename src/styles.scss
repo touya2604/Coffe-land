@@ -9,3 +9,6 @@ $icon-link-icon-transition: 0.2s ease-in-out transform;
 $icon-link-icon-transform: translate3d(0.25em, 0, 0);
 // Then import Bootstrap
 @import "bootstrap/scss/bootstrap";
+.carousel-item {
+  transition: transform 0.7s ease-in-out;
+}
