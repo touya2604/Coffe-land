@@ -85,7 +85,12 @@
         </button>
       </div>
     </div>
-    <div id="bestSellerCarousel" class="carousel slide">
+    <div
+      id="bestSellerCarousel"
+      class="carousel slide"
+      data-bs-ride="carousel"
+      data-bs-interval="4000"
+    >
       <div class="carousel-inner">
         <div
           *ngFor="let group of products | chunk : 4; let i = index"
@@ -144,7 +149,12 @@
         </button>
       </div>
     </div>
-    <div id="foodCarousel" class="carousel slide">
+    <div
+      id="foodCarousel"
+      class="carousel slide"
+      data-bs-ride="carousel"
+      data-bs-interval="4000"
+    >
       <div class="carousel-inner">
         <div
           *ngFor="let food of foods | chunk : 4; let i = index"
@@ -203,7 +213,12 @@
         </button>
       </div>
     </div>
-    <div id="drinkCarousel" class="carousel slide">
+    <div
+      id="drinkCarousel"
+      class="carousel slide"
+      data-bs-ride="carousel"
+      data-bs-interval="4000"
+    >
       <div class="carousel-inner">
         <div
           *ngFor="let drink of drinks | chunk : 4; let i = index"
