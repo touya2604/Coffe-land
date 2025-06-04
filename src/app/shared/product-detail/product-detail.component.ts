@@ -30,4 +30,5 @@ export class ProductDetailComponent {
   closePopup() {
     this.newCheck.emit();
   }
+  onAddToCart() {}
 }

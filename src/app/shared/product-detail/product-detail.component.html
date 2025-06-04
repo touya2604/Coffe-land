@@ -15,8 +15,10 @@
         </div>
         <div class="col-12 col-md-7">
           <div class="card-body text-center text-md-start">
-            <h5 class="card-title fw-bold mb-3">{{ selectedProduct?.name }}</h5>
-            <p class="card-text mb-2">{{ selectedProduct?.desc }}</p>
+            <h4 class="card-title fw-bold mb-3">{{ selectedProduct?.name }}</h4>
+            <p class="card-text mb-2">
+              Giới thiệu: {{ selectedProduct?.desc }}
+            </p>
             <p class="card-text text-primary fw-semibold">
               Giá bán:
               {{
@@ -24,14 +26,15 @@
               }}
             </p>
             <button
-              class="btn btn-outline-secondary rounded-pill mt-3 me-3 px-4"
+              (click)="onAddToCart()"
+              class="btn btn-outline-primary rounded-pill mt-3 me-3 px-4"
               type="button"
             >
               Thêm vào giỏ hàng
             </button>
             <button
               (click)="closePopup()"
-              class="btn btn-outline-secondary rounded-pill mt-3 px-4"
+              class="btn btn-outline-primary rounded-pill mt-3 px-4"
               type="button"
             >
               Đóng
