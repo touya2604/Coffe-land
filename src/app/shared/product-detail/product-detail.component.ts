@@ -30,5 +30,9 @@ export class ProductDetailComponent {
   closePopup() {
     this.newCheck.emit();
   }
-  onAddToCart() {}
+  onAddToCart() {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    cart.push(this.selectedProduct);
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
 }

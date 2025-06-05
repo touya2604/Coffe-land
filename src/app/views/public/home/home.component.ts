@@ -6,10 +6,17 @@ import { Foods } from '../../../mock/food.mock';
 import { Drinks } from '../../../mock/drink.mock';
 import { FormsModule } from '@angular/forms';
 import { ProductDetailComponent } from '../../../shared/product-detail/product-detail.component';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-home',
-  imports: [NgFor, ChunkPipe, FormsModule, ProductDetailComponent],
+  imports: [
+    NgFor,
+    ChunkPipe,
+    FormsModule,
+    ProductDetailComponent,
+    CartComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
