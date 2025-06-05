@@ -112,12 +112,12 @@
                   [src]="product.img"
                   class="card-img-top p-2 rounded-4"
                   alt="..."
-                  style="height: 200px"
+                  style="height: 200px; cursor: pointer"
+                  (click)="onHandleViewDetail(product.id)"
                 />
                 <div class="card-body p-2 text-center">
                   <h6 class="card-title mb-2 fw-bold">{{ product.name }}</h6>
                   <button
-                    (click)="onHandleViewDetail(product.id)"
                     class="btn btn-sm btn-outline-primary rounded-pill"
                     type="button"
                   >
@@ -177,12 +177,13 @@
                   [src]="product.img"
                   class="card-img-top p-2 rounded-4"
                   alt="..."
-                  style="height: 200px"
+                  style="height: 200px; cursor: pointer"
+                  (click)="onHandleViewDetail(product.id)"
                 />
+
                 <div class="card-body p-2 text-center">
                   <h6 class="card-title mb-2 fw-bold">{{ product.name }}</h6>
                   <button
-                    (click)="onHandleViewDetail(product.id)"
                     class="btn btn-sm btn-outline-primary rounded-pill"
                     type="button"
                   >
@@ -242,12 +243,12 @@
                   [src]="product.img"
                   class="card-img-top p-2 rounded-4"
                   alt="..."
-                  style="height: 200px"
+                  style="height: 200px; cursor: pointer"
+                  (click)="onHandleViewDetail(product.id)"
                 />
                 <div class="card-body p-2 text-center">
                   <h6 class="card-title mb-2 fw-bold">{{ product.name }}</h6>
                   <button
-                    (click)="onHandleViewDetail(product.id)"
                     class="btn btn-sm btn-outline-primary rounded-pill"
                     type="button"
                   >
