@@ -1,1 +1,52 @@
+<div class="container">
+  <div class="row">
+    <table class="table table-bordered align-middle">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 60%">Tên đơn hàng</th>
+          <th scope="col" style="width: 10%">Giá tiền</th>
+          <th scope="col" style="width: 10%">Số lượng</th>
+          <th scope="col" style="width: 10%">Thành tiền</th>
+          <th scope="col" style="width: 5%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (productCart && productCart.length > 0){ @for (product of
+        productCart; track product.id){
+        <tr>
+          <td>
+            <img class="w-25 me-3 float-start" [src]="product.img" />
+            <p class="h4">
+              {{ product.name }}
+            </p>
+            <p>{{ product.desc }}</p>
+          </td>
+          <td>
+            <span class="fw-bold text-primary">
+              {{ product.price | currency : "VND" : "symbol" : "1.0-0" }}
+            </span>
+          </td>
+          <td>mdo</td>
+          <td>amen</td>
+          <td>
+            <button
+              (click)="onDeleteItemCart(product.id)"
+              class="btn btn-delete text-primary"
+            >
+              X
+            </button>
+          </td>
+        </tr>
+        } } @else {
+        <tr>
+          <td colspan="5" class="text-center py-5">
+            <span class="h2">Vui lòng thêm sản phẩm vào giỏ hàng</span>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
 
+<!-- <button (click)="test()">TESST</button> -->

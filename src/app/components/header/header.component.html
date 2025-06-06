@@ -1,3 +1,8 @@
+<!-- Đường dẫn tĩnh: routerLink="/cart"
+Đường dẫn động/biến: [routerLink]="['/cart', id]" 
+
+Nếu chỉ dẫn đến một route tĩnh, dùng routerLink="/cart" là ngắn gọn, dễ đọc.
+Nếu có tham số hoặc muốn truyền biến, dùng [routerLink]="['/cart', id]".-->
 <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
   <div class="container-fluid">
     <a class="navbar-brand fs-3" href="#">COFFE LAND</a>
@@ -18,7 +23,7 @@
           <a
             class="nav-link active headerText py-4 fs-5"
             aria-current="page"
-            href="#"
+            routerLink="/"
             >Trang chủ</a
           >
         </li>
@@ -44,6 +49,15 @@
             aria-current="page"
             href="#"
             >Về chúng tôi</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            [routerLink]="['/cart']"
+            routerLinkActive="router-link-active"
+            class="nav-link active headerText py-4 fs-5"
+            aria-current="page"
+            >Giỏ hàng</a
           >
         </li>
 
