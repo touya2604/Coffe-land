@@ -15,7 +15,11 @@
         productCart; track product.id){
         <tr>
           <td>
-            <img class="w-25 me-3 float-start" [src]="product.img" />
+            <img
+              class="me-3 float-start"
+              [src]="product.img"
+              style="max-width: 9rem"
+            />
             <p class="h4">
               {{ product.name }}
             </p>
