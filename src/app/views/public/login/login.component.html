@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="col-6 mx-auto">
+    <p class="h1 text-center">Đăng nhập</p>
+    <form>
+      @if (loginType === "email"){
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">Email: </label>
+        <input
+          class="form-control"
+          type="email"
+          id="emailInput"
+          placeholder="name@gmail.com"
+          required
+        />
+      </div>
+      } @else if (loginType === "phone"){
+      <div class="mb-3">
+        <label for="phoneInput" class="form-label">Phone: </label>
+        <input
+          class="form-control"
+          type="email"
+          id="phoneInput"
+          placeholder="0987654321"
+          required
+        />
+      </div>
+      }
+      <div class="mb-3">
+        <label for="passInput" class="form-label">Mật khẩu: </label>
+        <input class="form-control" type="password" id="passInput" required />
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-outline-success w-100">Đăng nhập</button>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-outline-danger w-100">Quên mật khẩu</button>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="radioDefault"
+          id="radioDefault1"
+          [(ngModel)]="loginType"
+          [value]="'email'"
+        />
+        <label class="form-check-label" for="radioDefault1">
+          Sử dụng email
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="radioDefault"
+          id="radioDefault2"
+          [(ngModel)]="loginType"
+          [value]="'phone'"
+          checked
+        />
+        <label class="form-check-label" for="radioDefault2">
+          Sử dụng số điện thoại
+        </label>
+      </div>
+    </form>
+  </div>
+</div>
