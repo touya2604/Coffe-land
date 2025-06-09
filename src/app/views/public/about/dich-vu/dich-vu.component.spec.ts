@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BestSellerComponent } from './best-seller.component';
+import { DichVuComponent } from './dich-vu.component';
 
-describe('BestSellerComponent', () => {
-  let component: BestSellerComponent;
-  let fixture: ComponentFixture<BestSellerComponent>;
+describe('DichVuComponent', () => {
+  let component: DichVuComponent;
+  let fixture: ComponentFixture<DichVuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BestSellerComponent]
+      imports: [DichVuComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BestSellerComponent);
+    fixture = TestBed.createComponent(DichVuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

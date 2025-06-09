@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DrinkComponent } from './drink.component';
+import { NguonGocComponent } from './nguon-goc.component';
 
-describe('DrinkComponent', () => {
-  let component: DrinkComponent;
-  let fixture: ComponentFixture<DrinkComponent>;
+describe('NguonGocComponent', () => {
+  let component: NguonGocComponent;
+  let fixture: ComponentFixture<NguonGocComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DrinkComponent]
+      imports: [NguonGocComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DrinkComponent);
+    fixture = TestBed.createComponent(NguonGocComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
