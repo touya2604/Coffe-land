@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="col-6 mx-auto">
     <p class="h1 text-center">Đăng nhập</p>
-    <form>
+    <form (ngSubmit)="onLogin()">
       @if (loginType === "email"){
       <div class="mb-3">
         <label for="emailInput" class="form-label">Email: </label>
@@ -9,8 +9,10 @@
           class="form-control"
           type="email"
           id="emailInput"
+          name="email"
           placeholder="name@gmail.com"
           required
+          [(ngModel)]="email"
         />
       </div>
       } @else if (loginType === "phone"){
@@ -18,19 +20,30 @@
         <label for="phoneInput" class="form-label">Phone: </label>
         <input
           class="form-control"
-          type="email"
+          type="text"
           id="phoneInput"
+          name="phone"
           placeholder="0987654321"
           required
+          [(ngModel)]="phone"
         />
       </div>
       }
       <div class="mb-3">
         <label for="passInput" class="form-label">Mật khẩu: </label>
-        <input class="form-control" type="password" id="passInput" required />
+        <input
+          class="form-control"
+          type="password"
+          id="passInput"
+          name="pass"
+          required
+          [(ngModel)]="pass"
+        />
       </div>
       <div class="mb-3">
-        <button class="btn btn-outline-success w-100">Đăng nhập</button>
+        <button class="btn btn-outline-success w-100" type="submit">
+          Đăng nhập
+        </button>
       </div>
       <div class="mb-3">
         <button class="btn btn-outline-danger w-100">Quên mật khẩu</button>
