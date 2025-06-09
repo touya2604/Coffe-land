@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <table class="table table-bordered align-middle">
       <thead>
@@ -30,8 +30,39 @@
               {{ product.price | currency : "VND" : "symbol" : "1.0-0" }}
             </span>
           </td>
-          <td>mdo</td>
-          <td>amen</td>
+          <td class="text-center align-items-center">
+            <div class="d-flex align-items-center justify-content-center">
+              <button
+                class="btn btn-outline-dark py-1 px-2 fw-bold"
+                (click)="onDecrease(product.id)"
+                type="button"
+              >
+                -
+              </button>
+              <input
+                class="form-control text-center mx-2"
+                style="width: 3rem"
+                type="text"
+                [value]="product.quantity"
+                (change)="onHandleInputQuantity(product.id, $event)"
+              />
+              <button
+                class="btn btn-outline-dark py-1 px-2 fw-bold"
+                (click)="onIncrease(product.id)"
+                type="button"
+              >
+                +
+              </button>
+            </div>
+          </td>
+          <td>
+            <span class="fw-bold text-primary">
+              {{
+                (product.quantity ?? 0) * (product.price ?? 0)
+                  | currency : "VND" : "symbol" : "1.0-0"
+              }}
+            </span>
+          </td>
           <td>
             <button
               (click)="onDeleteItemCart(product.id)"
@@ -50,6 +81,34 @@
         }
       </tbody>
     </table>
+    <div class="row g-0">
+      <div class="form-floating col-6">
+        <textarea
+          class="form-control w-50 h-100"
+          placeholder="Leave a comment here"
+          id="floatingTextarea2"
+        ></textarea>
+        <label for="floatingTextarea2">Ghi chú</label>
+      </div>
+      <div class="col-6">
+        <p class="text-end">
+          Tổng tiền: {{ totalPrice | currency : "VND" : "symbol" : "1.0-0" }}
+        </p>
+        <p class="text-end">Áp mã:</p>
+        <p class="text-end">Tiền ship</p>
+      </div>
+    </div>
+    <div>
+      <h2 class="text-end text-primary mb-3">
+        Thành tiền: {{ totalPrice | currency : "VND" : "symbol" : "1.0-0" }}
+      </h2>
+    </div>
+    <form>
+      <button class="btn btn-outline-warning w-100 mb-3">
+        Sử dụng voucher
+      </button>
+      <button class="btn btn-outline-success w-100 mb-3">Thanh toán</button>
+    </form>
   </div>
 </div>
 

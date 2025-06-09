@@ -32,7 +32,14 @@ export class ProductDetailComponent {
   }
   onAddToCart() {
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    cart.push(this.selectedProduct);
+    const index = cart.findIndex(
+      (item: any) => item.id === this.selectedProduct!.id
+    );
+    if (index > -1) {
+      cart[index].quantity += 1;
+    } else {
+      cart.push({ ...this.selectedProduct, quantity: 1 });
+    }
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 }
