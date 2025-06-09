@@ -2,16 +2,18 @@ import { Component } from '@angular/core';
 import { type Product } from '../../../model/product.model';
 import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
+  standalone: true,
   imports: [CurrencyPipe, FormsModule],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
 export class CartComponent {
   // productCart: Product[] = [];
-
+  constructor(private router: Router) {}
   productCart: (Product & { quantity?: number })[] = [];
   ngOnInit() {
     const product = localStorage.getItem('cart');
@@ -70,5 +72,9 @@ export class CartComponent {
       (sum, product) => sum + (product.price ?? 0) * (product.quantity ?? 0),
       0
     );
+  }
+  onHandlePayProduct() {
+    localStorage.clear();
+    this.router.navigate(['/']);
   }
 }

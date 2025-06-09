@@ -52,7 +52,7 @@ Nếu có tham số hoặc muốn truyền biến, dùng [routerLink]="['/cart',
             >Về chúng tôi</a
           >
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a
             [routerLink]="['/cart']"
             routerLinkActive="router-link-active"
@@ -60,7 +60,7 @@ Nếu có tham số hoặc muốn truyền biến, dùng [routerLink]="['/cart',
             aria-current="page"
             >Giỏ hàng</a
           >
-        </li>
+        </li> -->
 
         <!-- <li class="nav-item dropdown">
             <a
@@ -106,6 +106,13 @@ Nếu có tham số hoặc muốn truyền biến, dùng [routerLink]="['/cart',
           </svg>
         </button>
       </form> -->
+      <div class="me-2">
+        <i
+          class="bi bi-cart cartIcon fs-4 btn btn-outline-success border border-success rounded-circle"
+          [routerLink]="['/cart']"
+          routerLinkActive="router-link-active"
+        ></i>
+      </div>
       <app-button
         [routerLink]="['/login']"
         methodBtn="get"

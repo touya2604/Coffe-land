@@ -10,7 +10,8 @@ import { ViecLamComponent } from './views/public/about/viec-lam/viec-lam.compone
 
 export const routes: Routes = [
   //PUBLIC
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },

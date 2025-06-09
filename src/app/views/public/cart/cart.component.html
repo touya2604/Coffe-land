@@ -107,7 +107,13 @@
       <button class="btn btn-outline-warning w-100 mb-3">
         Sử dụng voucher
       </button>
-      <button class="btn btn-outline-success w-100 mb-3">Thanh toán</button>
+      <button
+        (click)="onHandlePayProduct()"
+        class="btn btn-outline-success w-100 mb-3"
+        type="button"
+      >
+        Thanh toán
+      </button>
     </form>
   </div>
 </div>
