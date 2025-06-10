@@ -107,13 +107,23 @@
       <button class="btn btn-outline-warning w-100 mb-3">
         Sử dụng voucher
       </button>
+      @if (userCurrent) {
       <button
-        (click)="onHandlePayProduct()"
+        [routerLink]="['/customer/payment']"
         class="btn btn-outline-success w-100 mb-3"
         type="button"
       >
         Mua đồ
       </button>
+      } @else {
+      <button
+        [routerLink]="['/payment']"
+        class="btn btn-outline-success w-100 mb-3"
+        type="button"
+      >
+        Mua đồ
+      </button>
+      }
     </form>
   </div>
 </div>

@@ -9,6 +9,8 @@ import { DichVuComponent } from './views/public/about/dich-vu/dich-vu.component'
 import { ViecLamComponent } from './views/public/about/viec-lam/viec-lam.component';
 import { ThongTinComponent } from './views/customer/thong-tin/thong-tin.component';
 import { authGuard } from './auth.guard';
+import { PaymentComponent } from './views/customer/payment/payment.component';
+import { PaymentNormalComponent } from './views/public/payment-normal/payment-normal.component';
 
 export const routes: Routes = [
   //Public routes
@@ -22,6 +24,7 @@ export const routes: Routes = [
   { path: 'nguon-goc', component: NguonGocComponent },
   { path: 'dich-vu', component: DichVuComponent },
   { path: 'viec-lam', component: ViecLamComponent },
+  { path: 'payment', component: PaymentNormalComponent },
 
   //Customer routes
   {
@@ -31,6 +34,10 @@ export const routes: Routes = [
       {
         path: 'thong-tin-ca-nhan',
         component: ThongTinComponent,
+      },
+      {
+        path: 'payment',
+        component: PaymentComponent,
       },
     ],
   },

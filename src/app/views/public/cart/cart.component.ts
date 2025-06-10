@@ -2,14 +2,14 @@ import { Component, inject } from '@angular/core';
 import { type Product } from '../../../model/product.model';
 import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { User } from '../../../model/user.model';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CurrencyPipe, FormsModule],
+  imports: [CurrencyPipe, FormsModule, RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
@@ -83,9 +83,9 @@ export class CartComponent {
       0
     );
   }
-  onHandlePayProduct() {
-    this.toastr.success('Thanh toán thành công !!!');
-    localStorage.clear();
-    this.router.navigate(['/']);
-  }
+  // onHandlePayProduct() {
+  //   this.toastr.success('Thanh toán thành công !!!');
+  //   localStorage.clear();
+  //   this.router.navigate(['/']);
+  // }
 }
