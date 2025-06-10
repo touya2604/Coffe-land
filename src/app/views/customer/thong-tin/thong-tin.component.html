@@ -1,19 +1,43 @@
 <div class="container my-3">
   <div class="row mx-auto">
     <div class="col-8 border-end border-black">
-      <form>
-        <label for="UserName" class="fs-5 fw-bold">Họ tên:</label>
-        <p class="form-control w-auto mt-2">{{ userCurrent.userName }}</p>
-        <label for="UserName" class="fs-5 fw-bold">Ngày sinh:</label>
-        <p class="form-control w-auto mt-2">
-          {{ userCurrent.date | date : "longDate" }}
-        </p>
-        <label for="UserName" class="fs-5 fw-bold">Email:</label>
-        <p class="form-control w-auto mt-2">{{ userCurrent.email }}</p>
-        <label for="UserName" class="fs-5 fw-bold">Phone:</label>
-        <p class="form-control w-auto mt-2">{{ userCurrent.phone }}</p>
+      <form class="row">
+        <div class="col-6 mb-3">
+          <label class="fs-5 fw-bold">Họ tên:</label>
+          <p class="form-control w-auto mt-2">{{ userCurrent.userName }}</p>
+        </div>
+        <div class="col-6 mb-3">
+          <label class="fs-5 fw-bold">Ngày sinh:</label>
+          <p class="form-control w-auto mt-2">
+            {{ userCurrent.date | date : "longDate" }}
+          </p>
+        </div>
+
+        <div class="col-6 mb-3">
+          <label class="fs-5 fw-bold">Giới tính:</label>
+          <p class="form-control w-auto mt-2">{{ userCurrent.gender }}</p>
+        </div>
+        <div class="col-6 mb-3">
+          <label class="fs-5 fw-bold">Email:</label>
+          <p class="form-control w-auto mt-2">{{ userCurrent.email }}</p>
+        </div>
+
+        <div class="col-6 mb-3">
+          <label class="fs-5 fw-bold">Số điện thoại:</label>
+          <p class="form-control w-auto mt-2">{{ userCurrent.phone }}</p>
+        </div>
+        <div class="col-6 mb-3">
+          <label class="fs-5 fw-bold">Tỉnh/Thành phố:</label>
+          <p class="form-control w-auto mt-2">{{ userCurrent.city }}</p>
+        </div>
+
+        <div class="col-12 mb-3">
+          <label class="fs-5 fw-bold">Địa chỉ chi tiết:</label>
+          <p class="form-control w-auto mt-2">{{ userCurrent.address }}</p>
+        </div>
       </form>
     </div>
+
     <div class="col-4">
       <div class="list-group">
         <button

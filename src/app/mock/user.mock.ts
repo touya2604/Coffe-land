@@ -6,6 +6,9 @@ export const Users = [
     phone: '0987654321',
     email: 'nguyenanh9761@gmail.com',
     pass: 'admin',
+    address: 'Số 12 Nguyễn Trãi, Thanh Xuân',
+    city: 'Hà Nội',
+    gender: 'male',
   },
   {
     id: 'U02',
@@ -14,6 +17,9 @@ export const Users = [
     phone: '0912345678',
     email: 'minh.nguyen@gmail.com',
     pass: 'minh123',
+    address: '25 Lý Tự Trọng, Quận 1',
+    city: 'TP. Hồ Chí Minh',
+    gender: 'male',
   },
   {
     id: 'U03',
@@ -22,6 +28,9 @@ export const Users = [
     phone: '0945678912',
     email: 'hoa.tran@yahoo.com',
     pass: 'hoa2001',
+    address: '89 Nguyễn Văn Linh, Hải Châu',
+    city: 'Đà Nẵng',
+    gender: 'female',
   },
   {
     id: 'U04',
@@ -30,6 +39,9 @@ export const Users = [
     phone: '0978123456',
     email: 'duc.le@hotmail.com',
     pass: 'duc1999',
+    address: '102 Trần Phú, Ngô Quyền',
+    city: 'Hải Phòng',
+    gender: 'male',
   },
   {
     id: 'U05',
@@ -38,6 +50,9 @@ export const Users = [
     phone: '0934567891',
     email: 'lan.pham@gmail.com',
     pass: 'lan28122002',
+    address: '55 Nguyễn Trãi, Ninh Kiều',
+    city: 'Cần Thơ',
+    gender: 'female',
   },
   {
     id: 'U06',
@@ -46,6 +61,9 @@ export const Users = [
     phone: '0923456789',
     email: 'khanh.vo@outlook.com',
     pass: 'khanh1997',
+    address: '71 Đại Lộ Bình Dương, Thủ Dầu Một',
+    city: 'Bình Dương',
+    gender: 'male',
   },
   {
     id: 'U07',
@@ -54,6 +72,9 @@ export const Users = [
     phone: '0956789012',
     email: 'thu.hoang@gmail.com',
     pass: 'thu17092000',
+    address: '10 Lê Lợi, TP. Vinh',
+    city: 'Nghệ An',
+    gender: 'female',
   },
   {
     id: 'U08',
@@ -62,6 +83,9 @@ export const Users = [
     phone: '0967890123',
     email: 'nam.dang@gmail.com',
     pass: 'nam1996',
+    address: '24 Nguyễn Huệ, TP. Huế',
+    city: 'Thừa Thiên Huế',
+    gender: 'male',
   },
   {
     id: 'U09',
@@ -70,6 +94,9 @@ export const Users = [
     phone: '0989012345',
     email: 'linh.bui@gmail.com',
     pass: 'linh2503',
+    address: '15 Trần Phú, TP. Bảo Lộc',
+    city: 'Lâm Đồng',
+    gender: 'female',
   },
   {
     id: 'U10',
@@ -78,5 +105,8 @@ export const Users = [
     phone: '0901234567',
     email: 'phong.nguyen@gmail.com',
     pass: 'phong1995',
+    address: '27 Hạ Long, Bãi Cháy',
+    city: 'Quảng Ninh',
+    gender: 'male',
   },
 ];
