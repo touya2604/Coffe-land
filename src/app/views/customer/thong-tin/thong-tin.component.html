@@ -1,1 +1,52 @@
-<p>thong-tin works!</p>
+<div class="container my-3">
+  <div class="row mx-auto">
+    <div class="col-8 border-end border-black">
+      <form>
+        <label for="UserName" class="fs-5 fw-bold">Họ tên:</label>
+        <p class="form-control w-auto mt-2">{{ userCurrent.userName }}</p>
+        <label for="UserName" class="fs-5 fw-bold">Ngày sinh:</label>
+        <p class="form-control w-auto mt-2">
+          {{ userCurrent.date | date : "longDate" }}
+        </p>
+        <label for="UserName" class="fs-5 fw-bold">Email:</label>
+        <p class="form-control w-auto mt-2">{{ userCurrent.email }}</p>
+        <label for="UserName" class="fs-5 fw-bold">Phone:</label>
+        <p class="form-control w-auto mt-2">{{ userCurrent.phone }}</p>
+      </form>
+    </div>
+    <div class="col-4">
+      <div class="list-group">
+        <button
+          type="button"
+          class="list-group-item list-group-item-action list-group-item-success active"
+        >
+          Thông tin cá nhân
+        </button>
+        <button
+          type="button"
+          class="list-group-item list-group-item-action list-group-item-success"
+        >
+          Lịch sử mua đồ
+        </button>
+        <button
+          type="button"
+          class="list-group-item list-group-item-action list-group-item-success"
+        >
+          Chỉnh sửa thông tin
+        </button>
+        <button
+          type="button"
+          class="list-group-item list-group-item-action list-group-item-success"
+        >
+          Nâng cao
+        </button>
+        <button
+          type="button"
+          class="list-group-item list-group-item-action list-group-item-success disabled"
+        >
+          Upcoming Features
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
