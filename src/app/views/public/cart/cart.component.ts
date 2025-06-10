@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { type Product } from '../../../model/product.model';
 import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../../model/user.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart',
@@ -18,6 +19,9 @@ export class CartComponent {
   productCart: (Product & { quantity?: number })[] = [];
 
   userCurrent!: User;
+
+  toastr = inject(ToastrService);
+
   ngOnInit() {
     const user = localStorage.getItem('currentUser');
     const key = user ? 'UserCart' : 'cart';
@@ -63,10 +67,10 @@ export class CartComponent {
     const product = this.productCart.find((p) => p.id === id);
     if (product && typeof product.quantity === 'number') {
       if (inputQuantity < 1) {
-        alert('No no');
+        this.toastr.warning('Vượt quá giới hạn');
         inputQuantity = 1;
       } else if (inputQuantity > 99) {
-        alert('No no');
+        this.toastr.warning('Vượt quá giới hạn');
         inputQuantity = 99;
       }
       product.quantity = inputQuantity;
@@ -80,7 +84,7 @@ export class CartComponent {
     );
   }
   onHandlePayProduct() {
-    alert('Thanh toán thành công !!!');
+    this.toastr.success('Thanh toán thành công !!!');
     localStorage.clear();
     this.router.navigate(['/']);
   }

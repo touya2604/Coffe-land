@@ -1,10 +1,10 @@
-import { Component, input, effect, output } from '@angular/core';
+import { Component, input, effect, output, inject } from '@angular/core';
 import { Product } from '../../model/product.model';
 import { Foods } from '../../mock/food.mock';
 import { Drinks } from '../../mock/drink.mock';
 import { CurrencyPipe } from '@angular/common';
 import { User } from '../../model/user.model';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-product-detail',
   standalone: true,
@@ -20,6 +20,8 @@ export class ProductDetailComponent {
   drinks = Drinks;
 
   userCurrent!: User;
+
+  toastr = inject(ToastrService);
   ngOnInit() {
     const user = localStorage.getItem('currentUser');
 
@@ -52,7 +54,7 @@ export class ProductDetailComponent {
     } else {
       cart.push({ ...this.selectedProduct, quantity: 1 });
     }
-    alert('Thêm vô giỏ hàng thành công');
+    this.toastr.success('Thêm vô giỏ hàng thành công');
     localStorage.setItem(key, JSON.stringify(cart));
     this.newCheck.emit();
   }
