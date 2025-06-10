@@ -3,6 +3,7 @@ import { type Product } from '../../../model/product.model';
 import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../../../model/user.model';
 
 @Component({
   selector: 'app-cart',
@@ -15,8 +16,13 @@ export class CartComponent {
   // productCart: Product[] = [];
   constructor(private router: Router) {}
   productCart: (Product & { quantity?: number })[] = [];
+
+  userCurrent!: User;
   ngOnInit() {
-    const product = localStorage.getItem('cart');
+    const user = localStorage.getItem('currentUser');
+    const key = user ? 'UserCart' : 'cart';
+    const product = localStorage.getItem(key);
+
     if (product) {
       try {
         this.productCart = JSON.parse(product);

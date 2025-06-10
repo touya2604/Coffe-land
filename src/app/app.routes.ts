@@ -8,6 +8,7 @@ import { NguonGocComponent } from './views/public/about/nguon-goc/nguon-goc.comp
 import { DichVuComponent } from './views/public/about/dich-vu/dich-vu.component';
 import { ViecLamComponent } from './views/public/about/viec-lam/viec-lam.component';
 import { ThongTinComponent } from './views/customer/thong-tin/thong-tin.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
   //Public routes
@@ -25,6 +26,12 @@ export const routes: Routes = [
   //Customer routes
   {
     path: 'customer',
-    children: [{ path: 'thong-tin-ca-nhan', component: ThongTinComponent }],
+    canActivate: [authGuard],
+    children: [
+      {
+        path: 'thong-tin-ca-nhan',
+        component: ThongTinComponent,
+      },
+    ],
   },
 ];

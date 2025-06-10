@@ -3,6 +3,7 @@ import { Product } from '../../model/product.model';
 import { Foods } from '../../mock/food.mock';
 import { Drinks } from '../../mock/drink.mock';
 import { CurrencyPipe } from '@angular/common';
+import { User } from '../../model/user.model';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,6 +18,16 @@ export class ProductDetailComponent {
   newCheck = output<void>();
   foods = Foods;
   drinks = Drinks;
+
+  userCurrent!: User;
+  ngOnInit() {
+    const user = localStorage.getItem('currentUser');
+
+    if (user) {
+      this.userCurrent = JSON.parse(user);
+    }
+  }
+
   get selectedProduct() {
     return (
       this.foods.find((food) => food.id === this.productId()) ||
@@ -31,7 +42,8 @@ export class ProductDetailComponent {
     this.newCheck.emit();
   }
   onAddToCart() {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const key = this.userCurrent ? 'UserCart' : 'cart';
+    const cart = JSON.parse(localStorage.getItem(key) || '[]');
     const index = cart.findIndex(
       (item: any) => item.id === this.selectedProduct!.id
     );
@@ -41,7 +53,7 @@ export class ProductDetailComponent {
       cart.push({ ...this.selectedProduct, quantity: 1 });
     }
     alert('Thêm vô giỏ hàng thành công');
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem(key, JSON.stringify(cart));
     this.newCheck.emit();
   }
 }
