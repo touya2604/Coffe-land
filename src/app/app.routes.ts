@@ -7,9 +7,10 @@ import { AboutComponent } from './views/public/about/about.component';
 import { NguonGocComponent } from './views/public/about/nguon-goc/nguon-goc.component';
 import { DichVuComponent } from './views/public/about/dich-vu/dich-vu.component';
 import { ViecLamComponent } from './views/public/about/viec-lam/viec-lam.component';
+import { ThongTinComponent } from './views/customer/thong-tin/thong-tin.component';
 
 export const routes: Routes = [
-  //PUBLIC
+  //Public routes
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'cart', component: CartComponent },
@@ -20,4 +21,10 @@ export const routes: Routes = [
   { path: 'nguon-goc', component: NguonGocComponent },
   { path: 'dich-vu', component: DichVuComponent },
   { path: 'viec-lam', component: ViecLamComponent },
+
+  //Customer routes
+  {
+    path: 'customer',
+    children: [{ path: 'thong-tin-ca-nhan', component: ThongTinComponent }],
+  },
 ];

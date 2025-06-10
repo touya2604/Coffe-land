@@ -74,6 +74,7 @@ export class CartComponent {
     );
   }
   onHandlePayProduct() {
+    alert('Thanh toán thành công !!!');
     localStorage.clear();
     this.router.navigate(['/']);
   }

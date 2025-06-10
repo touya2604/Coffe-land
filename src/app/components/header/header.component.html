@@ -113,18 +113,38 @@ Nếu có tham số hoặc muốn truyền biến, dùng [routerLink]="['/cart',
           routerLinkActive="router-link-active"
         ></i>
       </div>
-      <app-button
+      @if (!userCurrent){
+
+      <button
         [routerLink]="['/login']"
-        methodBtn="get"
-        typeBtn="button"
-        context="Đăng nhập"
-      ></app-button>
-      <app-button
+        type="button"
+        class="btn btn-outline-success mx-1"
+      >
+        Đăng nhập
+      </button>
+      <button
         [routerLink]="['/sign-up']"
-        methodBtn="get"
-        typeBtn="button"
-        context="Đăng ký"
-      ></app-button>
+        type="button"
+        class="btn btn-outline-success mx-1"
+      >
+        Đăng ký
+      </button>
+      }@else {
+      <button
+        [routerLink]="['/customer/thong-tin-ca-nhan']"
+        type="button"
+        class="btn btn-outline-success mx-1"
+      >
+        Thông tin cá nhân
+      </button>
+      <button
+        (click)="onLogOut()"
+        type="button"
+        class="btn btn-outline-success mx-1"
+      >
+        Đăng xuất
+      </button>
+      }
     </div>
   </div>
 </nav>

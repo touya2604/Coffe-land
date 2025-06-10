@@ -40,6 +40,8 @@ export class ProductDetailComponent {
     } else {
       cart.push({ ...this.selectedProduct, quantity: 1 });
     }
+    alert('Thêm vô giỏ hàng thành công');
     localStorage.setItem('cart', JSON.stringify(cart));
+    this.newCheck.emit();
   }
 }
