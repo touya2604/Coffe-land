@@ -1,7 +1,3 @@
-Dưới đây là phiên bản cập nhật nội dung `README.md` dành cho dự án **CoffeLand**, phản ánh đúng định hướng, tính năng, cấu trúc và những thảo luận bạn đã có trong quá trình phát triển:
-
----
-
 # ☕️ CoffeLand
 
 **CoffeLand** là một website bán hàng dành cho chuỗi cửa hàng cà phê và đồ ăn nhanh – được xây dựng bằng **Angular 19.2.12**. Dự án tập trung vào trải nghiệm người dùng mượt mà cho khách hàng (giao diện chính) và khả năng quản trị hiệu quả dành cho nhân viên/admin (giao diện quản lý).
