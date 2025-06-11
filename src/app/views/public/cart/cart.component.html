@@ -82,34 +82,37 @@
       </tbody>
     </table>
     <div class="row g-0">
-      <div class="form-floating col-6">
+      <!-- <div class="form-floating col-6">
         <textarea
           class="form-control w-50 h-100"
           placeholder="Leave a comment here"
           id="floatingTextarea2"
         ></textarea>
         <label for="floatingTextarea2">Ghi chú</label>
-      </div>
-      <div class="col-6">
+      </div> -->
+      <div class="col-12">
         <p class="text-end">
           Tổng tiền: {{ totalPrice | currency : "VND" : "symbol" : "1.0-0" }}
         </p>
-        <p class="text-end">Áp mã:</p>
-        <p class="text-end">Tiền ship</p>
+
+        <p class="text-end">
+          Tiền ship: {{ randomNumber | currency : "VND" : "symbol" : "1.0-0" }}
+        </p>
       </div>
     </div>
     <div>
       <h2 class="text-end text-primary mb-3">
-        Thành tiền: {{ totalPrice | currency : "VND" : "symbol" : "1.0-0" }}
+        Thành tiền:
+        {{ totalPrice + randomNumber | currency : "VND" : "symbol" : "1.0-0" }}
       </h2>
     </div>
     <form>
+      @if (userCurrent) {
       <button class="btn btn-outline-warning w-100 mb-3">
         Sử dụng voucher
       </button>
-      @if (userCurrent) {
       <button
-        [routerLink]="['/customer/payment']"
+        (click)="onHandlePayProduct()"
         class="btn btn-outline-success w-100 mb-3"
         type="button"
       >
@@ -117,7 +120,7 @@
       </button>
       } @else {
       <button
-        [routerLink]="['/payment']"
+        (click)="onHandlePayProduct()"
         class="btn btn-outline-success w-100 mb-3"
         type="button"
       >

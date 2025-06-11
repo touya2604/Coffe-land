@@ -17,23 +17,45 @@ export class CartComponent {
   // productCart: Product[] = [];
   constructor(private router: Router) {}
   productCart: (Product & { quantity?: number })[] = [];
-
+  // productCart = [];
+  randomNumber!: number;
   userCurrent!: User;
-
   toastr = inject(ToastrService);
 
   ngOnInit() {
+    this.initializeRandomNumber();
+
     const user = localStorage.getItem('currentUser');
     const key = user ? 'UserCart' : 'cart';
     const product = localStorage.getItem(key);
 
     if (product) {
-      try {
-        this.productCart = JSON.parse(product);
-      } catch (e) {
-        this.productCart = [];
-      }
+      this.productCart = JSON.parse(product);
     }
+    if (user) {
+      this.userCurrent = JSON.parse(user);
+    }
+  }
+  private initializeRandomNumber(): void {
+    const savedRandomNumber = localStorage.getItem('cartRandomNumber');
+
+    if (savedRandomNumber) {
+      // Nếu đã có số random được lưu, sử dụng số đó
+      this.randomNumber = parseInt(savedRandomNumber);
+    } else {
+      // Nếu chưa có, tạo số mới và lưu lại
+      this.randomNumber =
+        Math.floor(Math.random() * (40000 - 10000 + 1)) + 10000;
+      localStorage.setItem('cartRandomNumber', this.randomNumber.toString());
+    }
+  }
+
+  /**
+   * Hàm reset random number (nếu cần thiết)
+   */
+  resetRandomNumber(): void {
+    this.randomNumber = Math.floor(Math.random() * (40000 - 10000 + 1)) + 10000;
+    localStorage.setItem('cartRandomNumber', this.randomNumber.toString());
   }
   onDeleteItemCart(id: string) {
     this.productCart = this.productCart.filter((product) => product.id !== id);
@@ -83,9 +105,14 @@ export class CartComponent {
       0
     );
   }
-  // onHandlePayProduct() {
-  //   this.toastr.success('Thanh toán thành công !!!');
-  //   localStorage.clear();
-  //   this.router.navigate(['/']);
-  // }
+  onHandlePayProduct() {
+    // this.toastr.success('Thanh toán thành công !!!');
+    // localStorage.clear();
+    localStorage.setItem('orderItem', JSON.stringify(this.productCart));
+    if (this.userCurrent) {
+      this.router.navigate(['/customer/payment']);
+    } else {
+      this.router.navigate(['/payment']);
+    }
+  }
 }

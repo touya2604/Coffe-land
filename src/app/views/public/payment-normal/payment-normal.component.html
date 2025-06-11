@@ -1,0 +1,319 @@
+<div class="container">
+  <div class="row border rounded p-4 my-4 bg-light">
+    <div class="col-12 mb-3">
+      <h4 class="text-primary">
+        <i class="fas fa-user me-2"></i>Thông tin người nhận
+      </h4>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label class="form-label">Họ và tên:</label>
+      <input type="text" class="form-control" placeholder="Nguyễn Văn A" />
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label class="form-label">Số điện thoại:</label>
+      <input type="tel" class="form-control" placeholder="0123 456 789" />
+    </div>
+
+    <div class="col-12 mb-3">
+      <label class="form-label">Email:</label>
+      <input
+        type="email"
+        class="form-control"
+        placeholder="email@example.com"
+      />
+    </div>
+
+    <div class="col-12 mb-3">
+      <label class="form-label">Địa chỉ giao hàng:</label>
+      <textarea
+        class="form-control"
+        rows="3"
+        placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành phố"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-8">
+      <div class="row my-4 justify-content-center text-center">
+        <div class="col-md-4 col-sm-6 col-12 mb-3">
+          <button
+            class="btn w-100 py-3"
+            [ngClass]="{
+              'btn-primary': checkPayMethod === 'paypal',
+              'btn-outline-primary': checkPayMethod !== 'paypal'
+            }"
+            (click)="checkPayMethod = 'paypal'"
+          >
+            <i class="bi bi-paypal fs-1 d-block mb-2"></i>
+            <span class="fw-semibold">Paypal</span>
+          </button>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-12 mb-3">
+          <button
+            class="btn w-100 py-3"
+            [ngClass]="{
+              'btn-primary': checkPayMethod === 'credit',
+              'btn-outline-primary': checkPayMethod !== 'credit'
+            }"
+            (click)="checkPayMethod = 'credit'"
+          >
+            <i class="bi bi-credit-card fs-1 d-block mb-2"></i>
+            <span class="fw-semibold">Credit Card</span>
+          </button>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-12 mb-3">
+          <button
+            class="btn w-100 py-3"
+            [ngClass]="{
+              'btn-primary': checkPayMethod === 'visa',
+              'btn-outline-primary': checkPayMethod !== 'visa'
+            }"
+            (click)="checkPayMethod = 'visa'"
+          >
+            <i class="bi bi-passport fs-1 d-block mb-2"></i>
+            <span class="fw-semibold">Visa</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        @if(checkPayMethod === "paypal"){
+        <div class="col-12 mb-4">
+          <h4 class="text-primary mb-3">
+            <i class="fab fa-paypal me-2"></i>Thanh toán qua PayPal
+          </h4>
+        </div>
+
+        <div class="col-12 mb-4">
+          <label class="form-label">Email PayPal:</label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Nhập email PayPal của bạn"
+          />
+        </div>
+
+        <div class="col-6 mb-4">
+          <label class="form-label">Họ tên:</label>
+          <input type="text" class="form-control" placeholder="Nhập họ tên" />
+        </div>
+
+        <div class="col-6 mb-4">
+          <label class="form-label">Số điện thoại:</label>
+          <input
+            type="tel"
+            class="form-control"
+            placeholder="Nhập số điện thoại"
+          />
+        </div>
+
+        <div class="col-12 mb-4">
+          <label class="form-label">Địa chỉ:</label>
+          <textarea
+            class="form-control"
+            rows="3"
+            placeholder="Nhập địa chỉ của bạn"
+          ></textarea>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="paypalAgree" />
+            <label class="form-check-label" for="paypalAgree">
+              Tôi đồng ý với
+              <a href="#" class="text-primary">điều khoản thanh toán PayPal</a>
+            </label>
+          </div>
+        </div>
+        } @else if (checkPayMethod === "credit") {
+        <div class="col-12 mb-4">
+          <h4 class="text-primary mb-3">
+            <i class="fas fa-credit-card me-2"></i>Thanh toán qua Credit
+          </h4>
+        </div>
+
+        <div class="col-12 mb-4">
+          <label class="form-label">Số thẻ Credit:</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nhập số thẻ Credit"
+            maxlength="16"
+          />
+        </div>
+
+        <div class="col-6 mb-4">
+          <label class="form-label">Tên chủ thẻ:</label>
+          <input type="text" class="form-control" placeholder="Tên trên thẻ" />
+        </div>
+
+        <div class="col-3 mb-4">
+          <label class="form-label">Tháng/Năm:</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="MM/YY"
+            maxlength="5"
+          />
+        </div>
+
+        <div class="col-3 mb-4">
+          <label class="form-label">CVV:</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="CVV"
+            maxlength="3"
+          />
+        </div>
+
+        <div class="col-12 mb-4">
+          <label class="form-label">Mật khẩu thanh toán:</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Nhập mật khẩu thanh toán Credit"
+          />
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i>
+            Bạn sẽ nhận được OTP qua SMS để xác thực giao dịch
+          </div>
+        </div>
+        } @else if(checkPayMethod === "visa"){
+        <div class="col-12 mb-4">
+          <h4 class="text-primary mb-3">
+            <i class="fab fa-cc-visa me-2"></i>Thanh toán qua thẻ Visa
+          </h4>
+        </div>
+
+        <div class="col-12 mb-4">
+          <label class="form-label">Số thẻ Visa:</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="•••• •••• •••• ••••"
+            maxlength="19"
+          />
+        </div>
+
+        <div class="col-8 mb-4">
+          <label class="form-label">Tên chủ thẻ:</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Tên như trên thẻ"
+            style="text-transform: uppercase"
+          />
+        </div>
+
+        <div class="col-4 mb-4">
+          <label class="form-label">Ngày hết hạn:</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="MM/YY"
+            maxlength="5"
+          />
+        </div>
+
+        <div class="col-6 mb-4">
+          <label class="form-label">Mã CVC:</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="•••"
+            maxlength="3"
+          />
+        </div>
+
+        <div class="col-6 mb-4">
+          <label class="form-label">Mã ZIP/Postal:</label>
+          <input type="text" class="form-control" placeholder="Mã bưu điện" />
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="visaSecure" />
+            <label class="form-check-label" for="visaSecure">
+              Lưu thông tin thẻ cho lần thanh toán tiếp theo (bảo mật)
+            </label>
+          </div>
+        </div>
+        } @else {
+        <div class="col-12 text-center">
+          <div class="alert alert-warning">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            <h4>Vui lòng chọn phương thức thanh toán</h4>
+            <p class="mb-0">
+              Hãy chọn một trong các phương thức thanh toán được hỗ trợ để tiếp
+              tục
+            </p>
+          </div>
+        </div>
+        }
+      </div>
+      @if (checkPayMethod){
+
+      <div class="row mb-5">
+        <div class="col-12">
+          <button class="btn btn-outline-success w-100" (click)="onHandlePay()">
+            Xác nhận thanh toán
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="col-4 bg-primary bg-opacity-50 rounded shadow h-auto">
+      <p class="my-2">
+        <strong> Ngày đặt: </strong>{{ checkIn | date : "medium" }}
+      </p>
+      @for (product of ordersList; track product.id){
+      <div class="row mb-2">
+        <div class="col-12">
+          <div class="d-flex align-items-start gap-3">
+            <img
+              [src]="product.img"
+              style="max-width: 9rem; height: auto; object-fit: cover"
+              class="img-thumbnail"
+            />
+            <div class="flex-grow-1">
+              <p class="h5 mb-2">{{ product.name }}</p>
+              <p class="mb-1">
+                <strong>Số lượng: </strong>
+                <span class="text-light fw-bold">
+                  {{ product.quantity }}
+                </span>
+              </p>
+              <p>
+                <strong>Tổng giá:</strong>
+                <span class="text-light fw-bold">
+                  {{
+                    (product.quantity ?? 1) * (product.price ?? 0)
+                      | currency : "VND" : "symbol" : "1.0-0"
+                  }}
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+      <div class="row">
+        <h2 class="">
+          Thành tiền:
+          <span class="text-success fw-bold">
+            {{ totalPayMent | currency : "VND" : "symbol" : "1.0-0" }}
+          </span>
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
