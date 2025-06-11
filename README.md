@@ -18,15 +18,14 @@
 
 ```bash
 app/
-├── components/           # Các thành phần UI chính: header, footer, best-seller, drink, food
+├── components/           # Các thành phần UI chính: header, footer
 ├── config/               # Các cấu hình dùng chung (ví dụ: pipe)
 ├── core/                 # Hàm logic xử lý core: handleView, carousel utils
-├── mock/                 # Dữ liệu mẫu cho UI: drink, food, product
-├── model/                # Định nghĩa các model dùng chung: Product
-├── shared/               # Component tái sử dụng: button, product-detail
+├── mock/                 # Dữ liệu mẫu cho UI: drink, food, product, user
+├── model/                # Định nghĩa các model dùng chung: Product, User
+├── shared/               # Component tái sử dụng: product-detail
 ├── views/                # Phân chia giao diện theo loại người dùng:
-│   ├── admin/            # Giao diện quản trị
-│   ├── customer/         # Giao diện người dùng đã đăng nhập
+│   ├── customer/         # Giao diện người dùng đã đăng nhập (thanh toán, thông tin)
 │   └── public/           # Giao diện công khai: home, about, login, sign-up, cart
 └── app.*                 # Tập tin chính khởi tạo và định tuyến
 ```
@@ -97,7 +96,7 @@ ng test
 ## 💡 Các nguyên tắc thiết kế UI/UX
 
 * **Phân nhóm sản phẩm rõ ràng** (Best Seller riêng theo từng loại)
-* **Giao diện admin hoàn toàn tách biệt**, không sử dụng chung layout với frontend
+* **Giao diện admin có thể tách biệt** (nếu triển khai sau)
 * Thiết kế theo mô hình "tối ưu trải nghiệm đặt hàng nhanh nhất"
 * Đảm bảo có thể truy cập nhanh sản phẩm từ trang chủ
 * Thân thiện với thiết bị di động (mobile-first)
@@ -123,4 +122,3 @@ ng test
 ---
 
 📌 *Đây là dự án thực hành xây dựng hệ thống bán hàng trực tuyến mang tính mô phỏng cao, có thể mở rộng cho chuỗi cửa hàng thực tế.*
-
