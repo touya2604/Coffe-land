@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Product } from '../../../model/product.model';
+import { Product } from '../../../../model/product.model';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { CurrencyPipe, DatePipe, NgClass } from '@angular/common';

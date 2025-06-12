@@ -1,0 +1,14 @@
+.list-group-item-success:not(.disabled).active {
+  background-color: #1a8754;
+  color: white;
+}
+
+.list-group-item-success:not(.disabled) {
+  color: #1a8754;
+  background-color: white;
+}
+
+.list-group-item-success:not(.disabled):hover {
+  background-color: #1a8754;
+  color: white;
+}

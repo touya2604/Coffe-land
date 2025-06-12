@@ -9,10 +9,13 @@ import { DichVuComponent } from './views/public/about/dich-vu/dich-vu.component'
 import { ViecLamComponent } from './views/public/about/viec-lam/viec-lam.component';
 import { ThongTinComponent } from './views/customer/thong-tin/thong-tin.component';
 import { authGuard } from './auth.guard';
-import { PaymentComponent } from './views/customer/payment/payment.component';
+import { PaymentComponent } from './views/customer/cart/payment/payment.component';
 import { PaymentNormalComponent } from './views/public/payment-normal/payment-normal.component';
 import { FoodComponent } from './views/public/food/food.component';
 import { DrinkComponent } from './views/public/drink/drink.component';
+import { OrderHistoryComponent } from './views/customer/order-history/order-history.component';
+import { EditInformationComponent } from './views/customer/edit-information/edit-information.component';
+import { AdvancedComponent } from './views/customer/advanced/advanced.component';
 
 export const routes: Routes = [
   //Public routes
@@ -46,6 +49,15 @@ export const routes: Routes = [
         path: 'payment',
         component: PaymentComponent,
       },
+      {
+        path: 'order-history',
+        component: OrderHistoryComponent,
+      },
+      {
+        path: 'edit',
+        component: EditInformationComponent,
+      },
+      { path: 'nang-cao', component: AdvancedComponent },
     ],
   },
 ];
