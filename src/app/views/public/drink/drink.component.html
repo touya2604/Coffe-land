@@ -1,0 +1,256 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col-9">
+      <div class="row mb-5">
+        <div class="container best-seller">
+          <div class="container d-flex justify-content-between">
+            <h1 class="mb-4 text-primary">Cà phê</h1>
+            <div class="customer-carousel-btn-group">
+              <button
+                class="btn mx-2 customer-carousel-btn"
+                type="button"
+                data-bs-target="#foodCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+              <button
+                class="btn mx-2 customer-carousel-btn"
+                type="button"
+                data-bs-target="#foodCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+            </div>
+          </div>
+          <div
+            id="foodCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+            data-bs-interval="4000"
+          >
+            <div class="carousel-inner">
+              @for (group of groupedCoffee; let i = $index; track i){
+              <div class="carousel-item" [class.active]="i === 0">
+                <div class="row mx-auto">
+                  @for(product of group; track product.id){
+                  <div class="col-md-3">
+                    <div class="card h-100 shadow-sm border-0 rounded-4">
+                      <figure>
+                        <img
+                          [src]="product.img"
+                          class="card-img-top p-2 rounded-4"
+                          alt="..."
+                          style="height: 200px; cursor: pointer"
+                          (click)="onHandleViewDetail(product.id)"
+                        />
+                      </figure>
+
+                      <div class="card-body p-2 text-center d-flex flex-column">
+                        <h6 class="card-title mb-2 fw-bold">
+                          {{ product.name }}
+                        </h6>
+                        <p class="card-text mb-2 text-primary fw-semibold">
+                          Giá:
+                          {{
+                            product.price
+                              | currency : "VND" : "symbol" : "1.0-0"
+                          }}
+                        </p>
+                        <div class="mt-auto">
+                          <button
+                            class="btn btn-sm btn-outline-primary rounded-pill"
+                            type="button"
+                          >
+                            Xem chi tiết
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  }
+                </div>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trà -->
+      <div class="row mb-5">
+        <div class="container best-seller">
+          <div class="container d-flex justify-content-between">
+            <h1 class="mb-4 text-primary">Trà</h1>
+            <div class="customer-carousel-btn-group">
+              <button
+                class="btn mx-2 customer-carousel-btn"
+                type="button"
+                data-bs-target="#foodCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+              <button
+                class="btn mx-2 customer-carousel-btn"
+                type="button"
+                data-bs-target="#foodCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+            </div>
+          </div>
+          <div
+            id="foodCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+            data-bs-interval="4000"
+          >
+            <div class="carousel-inner">
+              @for (group of groupedTea; let i = $index; track i){
+              <div class="carousel-item" [class.active]="i === 0">
+                <div class="row mx-auto">
+                  @for(product of group; track product.id){
+                  <div class="col-md-3">
+                    <div class="card h-100 shadow-sm border-0 rounded-4">
+                      <figure>
+                        <img
+                          [src]="product.img"
+                          class="card-img-top p-2 rounded-4"
+                          alt="..."
+                          style="height: 200px; cursor: pointer"
+                          (click)="onHandleViewDetail(product.id)"
+                        />
+                      </figure>
+
+                      <div class="card-body p-2 text-center d-flex flex-column">
+                        <h6 class="card-title mb-2 fw-bold">
+                          {{ product.name }}
+                        </h6>
+                        <p class="card-text mb-2 text-primary fw-semibold">
+                          Giá:
+                          {{
+                            product.price
+                              | currency : "VND" : "symbol" : "1.0-0"
+                          }}
+                        </p>
+                        <div class="mt-auto">
+                          <button
+                            class="btn btn-sm btn-outline-primary rounded-pill"
+                            type="button"
+                          >
+                            Xem chi tiết
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  }
+                </div>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Đồ uống khác -->
+      <div class="row mb-5">
+        <div class="container best-seller">
+          <div class="container d-flex justify-content-between">
+            <h1 class="mb-4 text-primary">Đồ uống khác</h1>
+            <div class="customer-carousel-btn-group">
+              <button
+                class="btn mx-2 customer-carousel-btn"
+                type="button"
+                data-bs-target="#foodCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+              <button
+                class="btn mx-2 customer-carousel-btn"
+                type="button"
+                data-bs-target="#foodCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+            </div>
+          </div>
+          <div
+            id="foodCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+            data-bs-interval="4000"
+          >
+            <div class="carousel-inner">
+              @for (group of groupedOthers; let i = $index; track i){
+              <div class="carousel-item" [class.active]="i === 0">
+                <div class="row mx-auto">
+                  @for(product of group; track product.id){
+                  <div class="col-md-3">
+                    <div class="card h-100 shadow-sm border-0 rounded-4">
+                      <figure>
+                        <img
+                          [src]="product.img"
+                          class="card-img-top p-2 rounded-4"
+                          alt="..."
+                          style="height: 200px; cursor: pointer"
+                          (click)="onHandleViewDetail(product.id)"
+                        />
+                      </figure>
+
+                      <div class="card-body p-2 text-center d-flex flex-column">
+                        <h6 class="card-title mb-2 fw-bold">
+                          {{ product.name }}
+                        </h6>
+                        <p class="card-text mb-2 text-primary fw-semibold">
+                          Giá:
+                          {{
+                            product.price
+                              | currency : "VND" : "symbol" : "1.0-0"
+                          }}
+                        </p>
+                        <div class="mt-auto">
+                          <button
+                            class="btn btn-sm btn-outline-primary rounded-pill"
+                            type="button"
+                          >
+                            Xem chi tiết
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  }
+                </div>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

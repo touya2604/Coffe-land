@@ -11,19 +11,26 @@ import { ThongTinComponent } from './views/customer/thong-tin/thong-tin.componen
 import { authGuard } from './auth.guard';
 import { PaymentComponent } from './views/customer/payment/payment.component';
 import { PaymentNormalComponent } from './views/public/payment-normal/payment-normal.component';
+import { FoodComponent } from './views/public/food/food.component';
+import { DrinkComponent } from './views/public/drink/drink.component';
 
 export const routes: Routes = [
   //Public routes
+
+  //header/...
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'about-us', component: AboutComponent },
-
+  { path: 'foods', component: FoodComponent },
+  { path: 'drinks', component: DrinkComponent },
+  //about-us/...
   { path: 'nguon-goc', component: NguonGocComponent },
   { path: 'dich-vu', component: DichVuComponent },
   { path: 'viec-lam', component: ViecLamComponent },
+  //cart/...
   { path: 'payment', component: PaymentNormalComponent },
 
   //Customer routes
