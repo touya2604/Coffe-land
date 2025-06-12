@@ -31,6 +31,7 @@ export class LoginComponent {
     if (user) {
       this.toastr.success('Đăng nhập thành công');
       localStorage.setItem('currentUser', JSON.stringify(user));
+      localStorage.removeItem('cart');
       this.router.navigate(['/home']).then(() => {
         window.location.reload();
       });

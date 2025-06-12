@@ -21,7 +21,7 @@ export class CartComponent {
   randomNumber!: number;
   userCurrent!: User;
   toastr = inject(ToastrService);
-
+  checkKey = this.userCurrent ? 'UserCart' : 'cart';
   ngOnInit() {
     this.initializeRandomNumber();
 
@@ -59,7 +59,7 @@ export class CartComponent {
   }
   onDeleteItemCart(id: string) {
     this.productCart = this.productCart.filter((product) => product.id !== id);
-    localStorage.setItem('cart', JSON.stringify(this.productCart));
+    localStorage.setItem(this.checkKey, JSON.stringify(this.productCart));
   }
   onIncrease(id: string) {
     const product = this.productCart.find((p) => p.id === id);
@@ -69,7 +69,7 @@ export class CartComponent {
       product.quantity < 99
     ) {
       product.quantity += 1;
-      localStorage.setItem('cart', JSON.stringify(this.productCart));
+      localStorage.setItem(this.checkKey, JSON.stringify(this.productCart));
     }
   }
   onDecrease(id: string) {
@@ -80,7 +80,7 @@ export class CartComponent {
       product.quantity > 1
     ) {
       product.quantity -= 1;
-      localStorage.setItem('cart', JSON.stringify(this.productCart));
+      localStorage.setItem(this.checkKey, JSON.stringify(this.productCart));
     }
   }
   onHandleInputQuantity(id: string, event: Event) {
@@ -96,7 +96,7 @@ export class CartComponent {
         inputQuantity = 99;
       }
       product.quantity = inputQuantity;
-      localStorage.setItem('cart', JSON.stringify(this.productCart));
+      localStorage.setItem(this.checkKey, JSON.stringify(this.productCart));
     }
   }
   get totalPrice() {
@@ -108,11 +108,16 @@ export class CartComponent {
   onHandlePayProduct() {
     // this.toastr.success('Thanh toán thành công !!!');
     // localStorage.clear();
-    localStorage.setItem('orderItem', JSON.stringify(this.productCart));
-    if (this.userCurrent) {
-      this.router.navigate(['/customer/payment']);
+
+    if (this.productCart.length > 0) {
+      localStorage.setItem('orderItem', JSON.stringify(this.productCart));
+      if (this.userCurrent) {
+        this.router.navigate(['/customer/payment']);
+      } else {
+        this.router.navigate(['/payment']);
+      }
     } else {
-      this.router.navigate(['/payment']);
+      this.toastr.warning('Vui lòng thêm sản phẩm vào giỏ hàng');
     }
   }
 }

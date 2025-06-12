@@ -7,5 +7,5 @@ export interface User {
   pass: string;
   address: string; // địa chỉ chi tiết
   city: string; // tỉnh/thành phố
-  gender: 'male' | 'female'; // giới tính
+  gender: 'Nam' | 'Nữ'; // giới tính
 }

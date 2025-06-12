@@ -8,7 +8,7 @@ export const Users = [
     pass: 'admin',
     address: 'Số 12 Nguyễn Trãi, Thanh Xuân',
     city: 'Hà Nội',
-    gender: 'male',
+    gender: 'Nam',
   },
   {
     id: 'U02',
@@ -19,7 +19,7 @@ export const Users = [
     pass: 'minh123',
     address: '25 Lý Tự Trọng, Quận 1',
     city: 'TP. Hồ Chí Minh',
-    gender: 'male',
+    gender: 'Nam',
   },
   {
     id: 'U03',
@@ -30,7 +30,7 @@ export const Users = [
     pass: 'hoa2001',
     address: '89 Nguyễn Văn Linh, Hải Châu',
     city: 'Đà Nẵng',
-    gender: 'female',
+    gender: 'Nữ',
   },
   {
     id: 'U04',
@@ -41,7 +41,7 @@ export const Users = [
     pass: 'duc1999',
     address: '102 Trần Phú, Ngô Quyền',
     city: 'Hải Phòng',
-    gender: 'male',
+    gender: 'Nam',
   },
   {
     id: 'U05',
@@ -52,7 +52,7 @@ export const Users = [
     pass: 'lan28122002',
     address: '55 Nguyễn Trãi, Ninh Kiều',
     city: 'Cần Thơ',
-    gender: 'female',
+    gender: 'Nữ',
   },
   {
     id: 'U06',
@@ -63,7 +63,7 @@ export const Users = [
     pass: 'khanh1997',
     address: '71 Đại Lộ Bình Dương, Thủ Dầu Một',
     city: 'Bình Dương',
-    gender: 'male',
+    gender: 'Nam',
   },
   {
     id: 'U07',
@@ -74,7 +74,7 @@ export const Users = [
     pass: 'thu17092000',
     address: '10 Lê Lợi, TP. Vinh',
     city: 'Nghệ An',
-    gender: 'female',
+    gender: 'Nữ',
   },
   {
     id: 'U08',
@@ -85,7 +85,7 @@ export const Users = [
     pass: 'nam1996',
     address: '24 Nguyễn Huệ, TP. Huế',
     city: 'Thừa Thiên Huế',
-    gender: 'male',
+    gender: 'Nam',
   },
   {
     id: 'U09',
@@ -96,7 +96,7 @@ export const Users = [
     pass: 'linh2503',
     address: '15 Trần Phú, TP. Bảo Lộc',
     city: 'Lâm Đồng',
-    gender: 'female',
+    gender: 'Nữ',
   },
   {
     id: 'U10',
@@ -107,6 +107,6 @@ export const Users = [
     pass: 'phong1995',
     address: '27 Hạ Long, Bãi Cháy',
     city: 'Quảng Ninh',
-    gender: 'male',
+    gender: 'Nam',
   },
 ];
