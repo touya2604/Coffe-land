@@ -39,7 +39,7 @@ export class PaymentNormalComponent {
       checkIn: this.checkIn,
     });
     //đây là push 1 object có 2 thuộc tính là orders và checkin
-    //Dưới đây là push mảng có thêm thuộc tính checkIn
+    //Dưới đây là push mảng ọbject có thêm thuộc tính checkIn
     //orderHistory.push({ ...this.ordersList, check: this.checkIn });
     localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
     this.toastr.success('Đặt hàng thành công');
