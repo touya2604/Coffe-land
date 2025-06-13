@@ -1,3 +1,9 @@
+@if (check){
+<app-product-detail
+  [productId]="selectedId"
+  (newCheck)="onHandleClosePopup()"
+></app-product-detail>
+}
 <div class="container my-4">
   <div class="row">
     <div class="col-9">

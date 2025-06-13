@@ -16,6 +16,7 @@ import { DrinkComponent } from './views/public/drink/drink.component';
 import { OrderHistoryComponent } from './views/customer/order-history/order-history.component';
 import { EditInformationComponent } from './views/customer/edit-information/edit-information.component';
 import { AdvancedComponent } from './views/customer/advanced/advanced.component';
+import { OrderDetailComponent } from './views/customer/order-history/order-detail/order-detail.component';
 
 export const routes: Routes = [
   //Public routes
@@ -57,7 +58,15 @@ export const routes: Routes = [
         path: 'edit',
         component: EditInformationComponent,
       },
-      { path: 'nang-cao', component: AdvancedComponent },
+      {
+        path: 'nang-cao',
+        component: AdvancedComponent,
+      },
+      //Sẽ phải cập nhật sử dụng slug
+      {
+        path: 'order-detail',
+        component: OrderDetailComponent,
+      },
     ],
   },
 ];

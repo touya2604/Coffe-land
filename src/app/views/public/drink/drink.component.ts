@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Drinks } from '../../../mock/drink.mock';
 import { chunkArray } from '../../../core/utils/carousel-groups.util';
 import { CurrencyPipe } from '@angular/common';
+import { ProductDetailComponent } from '../../../shared/product-detail/product-detail.component';
 
 @Component({
   selector: 'app-drink',
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, ProductDetailComponent],
   templateUrl: './drink.component.html',
   styleUrl: './drink.component.scss',
 })
@@ -27,5 +28,9 @@ export class DrinkComponent {
   onHandleViewDetail(id: string) {
     this.check = true;
     this.selectedId = id;
+  }
+
+  onHandleClosePopup() {
+    this.check = false;
   }
 }

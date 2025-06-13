@@ -30,18 +30,19 @@ export class PaymentNormalComponent {
     );
   }
   onHandlePay() {
-    const orderHistory = JSON.parse(
-      localStorage.getItem('orderHistory') || '[]'
-    );
+    // const orderHistory = JSON.parse(
+    //   localStorage.getItem('orderHistory') || '[]'
+    // );
     //orderHistory luôn là mảng rỗng mới → bạn không lấy dữ liệu cũ từ localStorage.
-    orderHistory.push({
-      orders: { ...this.ordersList },
-      checkIn: this.checkIn,
-    });
+    // orderHistory.push({
+    //   orders: { ...this.ordersList },
+    //   checkIn: this.checkIn,
+    // });
     //đây là push 1 object có 2 thuộc tính là orders và checkin
     //Dưới đây là push mảng ọbject có thêm thuộc tính checkIn
     //orderHistory.push({ ...this.ordersList, check: this.checkIn });
-    localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
+
+    // localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
     this.toastr.success('Đặt hàng thành công');
     localStorage.removeItem('orderItem');
     localStorage.removeItem('cart');

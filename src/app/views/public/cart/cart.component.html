@@ -91,20 +91,29 @@
         <label for="floatingTextarea2">Ghi chú</label>
       </div> -->
       <div class="col-12">
+        @if (productCart.length>0){
         <p class="text-end">
           Tổng tiền: {{ totalPrice | currency : "VND" : "symbol" : "1.0-0" }}
         </p>
-
         <p class="text-end">
-          Tiền ship: {{ randomNumber | currency : "VND" : "symbol" : "1.0-0" }}
+          Tiền ship: {{ 20000 | currency : "VND" : "symbol" : "1.0-0" }}
         </p>
+        } @else {
+        <p class="text-end">Tổng tiền: 0 VNĐ</p>
+        <p class="text-end">Tiền ship: 0 VNĐ</p>
+        }
       </div>
     </div>
     <div>
+      @if (productCart.length>0){
+
       <h2 class="text-end text-primary mb-3">
         Thành tiền:
-        {{ totalPrice + randomNumber | currency : "VND" : "symbol" : "1.0-0" }}
+        {{ totalPrice + 20000 | currency : "VND" : "symbol" : "1.0-0" }}
       </h2>
+      } @else {
+      <h2 class="text-end text-primary mb-3">Thành tiền: 0 VNĐ</h2>
+      }
     </div>
     <form>
       @if (userCurrent) {

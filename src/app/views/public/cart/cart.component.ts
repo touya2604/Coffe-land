@@ -16,14 +16,14 @@ import { ToastrService } from 'ngx-toastr';
 export class CartComponent {
   // productCart: Product[] = [];
   constructor(private router: Router) {}
-  productCart: (Product & { quantity?: number })[] = [];
+  productCart: (Product & { quantity?: number })[] = []; //Danh sách sản phẩm
   // productCart = [];
-  randomNumber!: number;
-  userCurrent!: User;
+  // randomNumber!: number; // Tiền ship
+  userCurrent!: User; //check Login
   toastr = inject(ToastrService);
-  checkKey = this.userCurrent ? 'UserCart' : 'cart';
+  checkKey = this.userCurrent ? 'UserCart' : 'cart'; //Check cart. Nếu đã login thì là UserCart còn ko thì là cart
   ngOnInit() {
-    this.initializeRandomNumber();
+    // this.initializeRandomNumber(); // Tiền ship
 
     const user = localStorage.getItem('currentUser');
     const key = user ? 'UserCart' : 'cart';
@@ -36,27 +36,30 @@ export class CartComponent {
       this.userCurrent = JSON.parse(user);
     }
   }
-  private initializeRandomNumber(): void {
-    const savedRandomNumber = localStorage.getItem('cartRandomNumber');
 
-    if (savedRandomNumber) {
-      // Nếu đã có số random được lưu, sử dụng số đó
-      this.randomNumber = parseInt(savedRandomNumber);
-    } else {
-      // Nếu chưa có, tạo số mới và lưu lại
-      this.randomNumber =
-        Math.floor(Math.random() * (40000 - 10000 + 1)) + 10000;
-      localStorage.setItem('cartRandomNumber', this.randomNumber.toString());
-    }
-  }
+  //Tiền ship
+  // private initializeRandomNumber(): void {
+  //   const savedRandomNumber = localStorage.getItem('cartRandomNumber');
 
-  /**
-   * Hàm reset random number (nếu cần thiết)
-   */
-  resetRandomNumber(): void {
-    this.randomNumber = Math.floor(Math.random() * (40000 - 10000 + 1)) + 10000;
-    localStorage.setItem('cartRandomNumber', this.randomNumber.toString());
-  }
+  //   if (savedRandomNumber) {
+  //     // Nếu đã có số random được lưu, sử dụng số đó
+  //     this.randomNumber = parseInt(savedRandomNumber);
+  //   } else {
+  //     // Nếu chưa có, tạo số mới và lưu lại
+  //     this.randomNumber =
+  //       Math.floor(Math.random() * (40000 - 10000 + 1)) + 10000;
+  //     localStorage.setItem('cartRandomNumber', this.randomNumber.toString());
+  //   }
+  // }
+
+  // /**
+  //  * Hàm reset random number (nếu cần thiết)
+  //  */
+  // resetRandomNumber(): void {
+  //   this.randomNumber = Math.floor(Math.random() * (40000 - 10000 + 1)) + 10000;
+  //   localStorage.setItem('cartRandomNumber', this.randomNumber.toString());
+  // }
+
   onDeleteItemCart(id: string) {
     this.productCart = this.productCart.filter((product) => product.id !== id);
     localStorage.setItem(this.checkKey, JSON.stringify(this.productCart));
