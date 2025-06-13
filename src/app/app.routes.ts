@@ -62,9 +62,9 @@ export const routes: Routes = [
         path: 'nang-cao',
         component: AdvancedComponent,
       },
-      //Sẽ phải cập nhật sử dụng slug
+
       {
-        path: 'order-detail',
+        path: 'order-detail/:id',
         component: OrderDetailComponent,
       },
     ],

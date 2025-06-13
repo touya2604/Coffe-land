@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Product } from '../../../model/product.model';
 import { CurrencyPipe, DatePipe, JsonPipe } from '@angular/common';
+import { orderHistory } from '../../../model/orderHistory.model';
 
 @Component({
   selector: 'app-order-history',
@@ -10,13 +11,7 @@ import { CurrencyPipe, DatePipe, JsonPipe } from '@angular/common';
   styleUrl: './order-history.component.scss',
 })
 export class OrderHistoryComponent {
-  orderHistory: {
-    orders: (Product & { quantity?: number })[];
-    check: Date;
-    status: string;
-    total: number;
-    id: string;
-  }[] = [];
+  orderHistory: orderHistory[] = [];
 
   ngOnInit() {
     const order = localStorage.getItem('orderHistory');
