@@ -19,6 +19,7 @@ export class OrderDetailComponent {
     check: Date;
     status: string;
     total: number;
+    payMethod: string;
   }[] = [];
   orderDetailId = '';
   orderDetail: orderHistory | undefined;

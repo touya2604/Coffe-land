@@ -1,6 +1,70 @@
 <div class="container my-3">
   <div class="row mx-auto">
-    <div class="col-4">
+    <div class="col-8">
+      <form class="row" (ngSubmit)="onSaveEdit()">
+        <div class="text-end mt-3">
+          <button class="btn btn-outline-success px-3 fs-5">Lưu lại</button>
+        </div>
+        <div class="col-6 mb-3">
+          <label class="fs-5 fw-bold">Họ tên:</label>
+          <input
+            class="form-control mt-2"
+            type="text"
+            name="userName"
+            [(ngModel)]="userName"
+          />
+        </div>
+        <div class="col-6 mb-3">
+          <label class="fs-5 fw-bold">Ngày sinh:</label>
+          <input
+            class="form-control mt-2"
+            type="date"
+            name="date"
+            [(ngModel)]="date"
+          />
+        </div>
+
+        <div class="col-6 mb-3">
+          <label class="fs-5 fw-bold">Giới tính:</label>
+          <input class="form-control mt-2" name="gender" [(ngModel)]="gender" />
+        </div>
+        <div class="col-6 mb-3">
+          <label class="fs-5 fw-bold">Email:</label>
+          <input
+            class="form-control mt-2"
+            name="mail"
+            type="email"
+            [(ngModel)]="mail"
+          />
+        </div>
+
+        <div class="col-6 mb-3">
+          <label class="fs-5 fw-bold">Số điện thoại:</label>
+          <input
+            class="form-control mt-2"
+            type="text"
+            name="phone"
+            [(ngModel)]="phone"
+          />
+        </div>
+        <div class="col-6 mb-3">
+          <label class="fs-5 fw-bold">Tỉnh/Thành phố:</label>
+          <input class="form-control mt-2" name="city" [(ngModel)]="city" />
+        </div>
+
+        <div class="col-12 mb-3">
+          <label class="fs-5 fw-bold">Địa chỉ chi tiết:</label>
+          <input
+            class="form-control mt-2"
+            type="text"
+            name="address"
+            [(ngModel)]="address"
+          />
+        </div>
+      </form>
+    </div>
+
+    <div class="col-4 border-start border-black">
       <div class="list-group">
         <button
           routerLink="/customer/thong-tin-ca-nhan"

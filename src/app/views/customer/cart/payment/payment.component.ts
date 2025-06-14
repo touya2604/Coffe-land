@@ -41,6 +41,7 @@ export class PaymentComponent {
       check: this.checkIn,
       status: 'Đang giao hàng',
       total: this.totalPayMent,
+      payMethod: this.checkPayMethod,
     });
     localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
     this.toastr.success('Đặt hàng thành công');

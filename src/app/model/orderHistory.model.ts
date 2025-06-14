@@ -6,4 +6,5 @@ export interface orderHistory {
   status: string;
   total: number;
   id: string;
+  payMethod: string;
 }
