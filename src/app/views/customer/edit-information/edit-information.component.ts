@@ -38,6 +38,55 @@ export class EditInformationComponent {
     this.address = this.userCurrent.address;
   }
   onSaveEdit() {
+    // ===== VALIDATION =====
+    if (!this.userName || this.userName.trim() === '') {
+      this.toastr.warning('Họ tên không được để trống');
+      return;
+    }
+
+    if (!this.date) {
+      this.toastr.warning('Ngày sinh không được để trống');
+      return;
+    }
+
+    if (!this.gender || this.gender.trim() === '') {
+      this.toastr.warning('Giới tính không được để trống');
+      return;
+    }
+
+    if (!this.mail || this.mail.trim() === '') {
+      this.toastr.warning('Email không được để trống');
+      return;
+    }
+
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    if (!emailRegex.test(this.mail)) {
+      this.toastr.warning('Email không đúng định dạng');
+      return;
+    }
+
+    if (!this.phone || this.phone.trim() === '') {
+      this.toastr.warning('Số điện thoại không được để trống');
+      return;
+    }
+
+    const phoneRegex = /^(0|\+84)(\d{9})$/;
+    if (!phoneRegex.test(this.phone)) {
+      this.toastr.warning('Số điện thoại không hợp lệ (VD: 098xxxxxxx)');
+      return;
+    }
+
+    if (!this.city || this.city.trim() === '') {
+      this.toastr.warning('Tỉnh/Thành phố không được để trống');
+      return;
+    }
+
+    if (!this.address || this.address.trim() === '') {
+      this.toastr.warning('Địa chỉ không được để trống');
+      return;
+    }
+
+    // ===== LƯU THÔNG TIN =====
     try {
       this.userCurrent.userName = this.userName;
       this.userCurrent.date = this.date;
@@ -46,12 +95,15 @@ export class EditInformationComponent {
       this.userCurrent.phone = this.phone;
       this.userCurrent.city = this.city;
       this.userCurrent.address = this.address;
+
+      localStorage.setItem('currentUser', JSON.stringify(this.userCurrent));
+
+      this.toastr.success('Lưu thành công');
+      this.router.navigate(['/customer/thong-tin-ca-nhan']);
     } catch (error) {
-      this.toastr.warning('Có lỗi');
+      this.toastr.warning('Có lỗi xảy ra khi lưu');
     }
-    this.toastr.success('Lưu thành công');
-    this.router.navigate(['/customer/thong-tin-ca-nhan']);
-    localStorage.setItem('currentUser', JSON.stringify(this.userCurrent));
   }
+
   test() {}
 }
