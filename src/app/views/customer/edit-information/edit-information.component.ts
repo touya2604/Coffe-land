@@ -4,7 +4,7 @@ import { User } from '../../../model/user.model';
 import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-
+import { getProvinces } from 'vietnam-provinces';
 @Component({
   selector: 'app-edit-information',
   imports: [RouterLink, DatePipe, FormsModule],
@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './edit-information.component.scss',
 })
 export class EditInformationComponent {
+  provinces = getProvinces();
   toastr = inject(ToastrService);
   router = inject(Router);
   userCurrent!: User;
@@ -39,7 +40,7 @@ export class EditInformationComponent {
     try {
       this.userCurrent.userName = this.userName;
       this.userCurrent.date = this.date;
-      this.userCurrent.gender = 'Nam';
+      this.userCurrent.gender = this.gender;
       this.userCurrent.email = this.mail;
       this.userCurrent.phone = this.phone;
       this.userCurrent.city = this.city;
@@ -51,4 +52,5 @@ export class EditInformationComponent {
     this.router.navigate(['/customer/thong-tin-ca-nhan']);
     localStorage.setItem('currentUser', JSON.stringify(this.userCurrent));
   }
+  test() {}
 }

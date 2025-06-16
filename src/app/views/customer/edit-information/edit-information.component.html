@@ -2,9 +2,6 @@
   <div class="row mx-auto">
     <div class="col-8">
       <form class="row" (ngSubmit)="onSaveEdit()">
-        <div class="text-end mt-3">
-          <button class="btn btn-outline-success px-3 fs-5">Lưu lại</button>
-        </div>
         <div class="col-6 mb-3">
           <label class="fs-5 fw-bold">Họ tên:</label>
           <input
@@ -26,7 +23,11 @@
 
         <div class="col-6 mb-3">
           <label class="fs-5 fw-bold">Giới tính:</label>
-          <input class="form-control mt-2" name="gender" [(ngModel)]="gender" />
+          <!-- <input class="form-control mt-2" name="gender" [(ngModel)]="gender" /> -->
+          <select class="form-select" name="gender" [(ngModel)]="gender">
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+          </select>
         </div>
         <div class="col-6 mb-3">
           <label class="fs-5 fw-bold">Email:</label>
@@ -49,10 +50,15 @@
         </div>
         <div class="col-6 mb-3">
           <label class="fs-5 fw-bold">Tỉnh/Thành phố:</label>
-          <input class="form-control mt-2" name="city" [(ngModel)]="city" />
+          <!-- <input class="form-control mt-2" name="city" [(ngModel)]="city" /> -->
+          <select name="city" id="city" class="form-select" [(ngModel)]="city">
+            @for (city of provinces; track city.code){
+            <option [value]="city.name">{{ city.name }}</option>
+            }
+          </select>
         </div>
 
-        <div class="col-12 mb-3">
+        <div class="col-12">
           <label class="fs-5 fw-bold">Địa chỉ chi tiết:</label>
           <input
             class="form-control mt-2"
@@ -60,6 +66,9 @@
             name="address"
             [(ngModel)]="address"
           />
+        </div>
+        <div class="text-end mt-3">
+          <button class="btn btn-outline-success px-3 fs-5">Lưu lại</button>
         </div>
       </form>
     </div>
