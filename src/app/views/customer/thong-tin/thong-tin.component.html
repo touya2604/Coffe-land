@@ -1,91 +1,41 @@
 <div class="container my-3">
-  <div class="row mx-auto">
+  <div class="row">
     <div class="col-8">
-      <form class="row">
-        <div class="col-6 mb-3">
-          <p class="fs-5 mt-2">
-            <span class="fs-5 fw-bold">Họ tên: </span>{{ userCurrent.userName }}
-          </p>
-        </div>
-        <div class="col-6 mb-3">
-          <p class="fs-5 mt-2">
-            <span class="fs-5 fw-bold">Ngày sinh:</span>
-            {{ userCurrent.date | date : "longDate" }}
-          </p>
-        </div>
+      <div class="col-9 mb-3 d-flex justify-content-between mx-auto">
+        <span class="fs-6 mt-2 opacity-50">Họ tên:</span>
+        <p class="fs-6 mt-2">{{ userCurrent.userName }}</p>
+      </div>
+      <div class="col-9 mb-3 d-flex justify-content-between mx-auto">
+        <span class="fs-6 mt-2 opacity-50">Ngày sinh:</span>
+        <p class="fs-6 mt-2">{{ userCurrent.date | date : "longDate" }}</p>
+      </div>
 
-        <div class="col-6 mb-3">
-          <p class="fs-5 mt-2">
-            <span class="fs-5 fw-bold">Giới tính:</span>
-            {{ userCurrent.gender }}
-          </p>
-        </div>
-        <div class="col-6 mb-3">
-          <p class="fs-5 mt-2">
-            <span class="fs-5 fw-bold">Email:</span>
-            {{ userCurrent.email }}
-          </p>
-        </div>
+      <div class="col-9 mb-3 d-flex justify-content-between mx-auto">
+        <span class="fs-6 mt-2 opacity-50">Giới tính:</span>
+        <p class="fs-6 mt-2">{{ userCurrent.gender }}</p>
+      </div>
+      <div class="col-9 mb-3 d-flex justify-content-between mx-auto">
+        <span class="fs-6 mt-2 opacity-50">Email:</span>
+        <p class="fs-6 mt-2">{{ userCurrent.email }}</p>
+      </div>
 
-        <div class="col-6 mb-3">
-          <p class="fs-5 mt-2">
-            <span class="fs-5 fw-bold">Số điện thoại:</span>
-            {{ userCurrent.phone }}
-          </p>
-        </div>
-        <div class="col-6 mb-3">
-          <p class="fs-5 mt-2">
-            <span class="fs-5 fw-bold">Tỉnh/Thành phố:</span>
-            {{ userCurrent.city }}
-          </p>
-        </div>
+      <div class="col-9 mb-3 d-flex justify-content-between mx-auto">
+        <span class="fs-6 mt-2 opacity-50">Số điện thoại:</span>
+        <p class="fs-6 mt-2">{{ userCurrent.phone }}</p>
+      </div>
+      <div class="col-9 mb-3 d-flex justify-content-between mx-auto">
+        <span class="fs-6 mt-2 opacity-50">Tỉnh/Thành phố:</span>
+        <p class="fs-6 mt-2">{{ userCurrent.city }}</p>
+      </div>
 
-        <div class="col-12 mb-3">
-          <p class="fs-5 mt-2">
-            <span class="fs-5 fw-bold">Địa chỉ:</span>
-            {{ userCurrent.address }}
-          </p>
-        </div>
-      </form>
+      <div class="col-9 mb-3 d-flex justify-content-between mx-auto">
+        <span class="fs-6 mt-2 opacity-50">Địa chỉ:</span>
+        <p class="fs-6 mt-2">{{ userCurrent.address }}</p>
+      </div>
     </div>
 
-    <div class="col-4 border-start border-black">
-      <div class="list-group">
-        <button
-          routerLink="/customer/thong-tin-ca-nhan"
-          type="button"
-          class="list-group-item list-group-item-action list-group-item-success active"
-        >
-          Thông tin cá nhân
-        </button>
-        <button
-          routerLink="/customer/order-history"
-          type="button"
-          class="list-group-item list-group-item-action list-group-item-success"
-        >
-          Lịch sử mua đồ
-        </button>
-        <button
-          routerLink="/customer/edit"
-          type="button"
-          class="list-group-item list-group-item-action list-group-item-success"
-        >
-          Chỉnh sửa thông tin
-        </button>
-        <button
-          routerLink="/customer/nang-cao"
-          type="button"
-          class="list-group-item list-group-item-action list-group-item-success"
-        >
-          Nâng cao
-        </button>
-        <button
-          type="button"
-          class="list-group-item list-group-item-action list-group-item-success disabled"
-        >
-          Upcoming Features
-        </button>
-      </div>
+    <div class="col-4 border-start border-gray">
+      <app-sidebar></app-sidebar>
     </div>
   </div>
 </div>

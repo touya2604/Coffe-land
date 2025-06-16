@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { User } from '../../../model/user.model';
 import { DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { SidebarComponent } from '../../../components/users/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-thong-tin',
-  imports: [DatePipe, RouterLink],
+  imports: [DatePipe, RouterLink, SidebarComponent],
   templateUrl: './thong-tin.component.html',
   styleUrl: './thong-tin.component.scss',
 })

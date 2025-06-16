@@ -5,9 +5,10 @@ import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { getProvinces } from 'vietnam-provinces';
+import { SidebarComponent } from '../../../components/users/sidebar/sidebar.component';
 @Component({
   selector: 'app-edit-information',
-  imports: [RouterLink, DatePipe, FormsModule],
+  imports: [RouterLink, DatePipe, FormsModule, SidebarComponent],
   templateUrl: './edit-information.component.html',
   styleUrl: './edit-information.component.scss',
 })

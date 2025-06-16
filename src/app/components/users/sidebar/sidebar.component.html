@@ -1,0 +1,49 @@
+<div class="d-flex flex-column row-gap-1">
+  <button
+    routerLink="/customer/thong-tin-ca-nhan"
+    type="button"
+    class="btn text-start"
+    [ngClass]="{
+      'btn-success': check === 'thong-tin',
+      'btn-outline-success': check !== 'thong-tin'
+    }"
+  >
+    Thông tin cá nhân
+  </button>
+  <button
+    routerLink="/customer/order-history"
+    type="button"
+    class="btn text-start"
+    [ngClass]="{
+      'btn-success': check === 'history',
+      'btn-outline-success': check !== 'history'
+    }"
+  >
+    Lịch sử mua đồ
+  </button>
+  <button
+    routerLink="/customer/edit"
+    type="button"
+    class="btn text-start"
+    [ngClass]="{
+      'btn-success': check === 'edit',
+      'btn-outline-success': check !== 'edit'
+    }"
+  >
+    Chỉnh sửa thông tin
+  </button>
+  <button
+    routerLink="/customer/nang-cao"
+    type="button"
+    class="btn text-start"
+    [ngClass]="{
+      'btn-success': check === 'nang-cao',
+      'btn-outline-success': check !== 'nang-cao'
+    }"
+  >
+    Nâng cao
+  </button>
+  <button type="button" class="btn text-start disabled">
+    Upcoming Features
+  </button>
+</div>
