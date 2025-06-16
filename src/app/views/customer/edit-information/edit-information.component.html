@@ -53,7 +53,9 @@
           <!-- <input class="form-control mt-2" name="city" [(ngModel)]="city" /> -->
           <select name="city" id="city" class="form-select" [(ngModel)]="city">
             @for (city of provinces; track city.code){
-            <option [value]="city.name">{{ city.name }}</option>
+            <option>
+              {{ city.name.replace("Tỉnh", "").replace("Thành phố", "") }}
+            </option>
             }
           </select>
         </div>
