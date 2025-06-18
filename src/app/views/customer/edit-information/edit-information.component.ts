@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { getProvinces } from 'vietnam-provinces';
 import { SidebarComponent } from '../../../components/users/sidebar/sidebar.component';
+import { emailRegex, phoneRegex } from '../../../core/utils/regex.util';
 @Component({
   selector: 'app-edit-information',
   imports: [RouterLink, DatePipe, FormsModule, SidebarComponent],
@@ -59,7 +60,6 @@ export class EditInformationComponent {
       return;
     }
 
-    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     if (!emailRegex.test(this.mail)) {
       this.toastr.warning('Email không đúng định dạng');
       return;
@@ -70,7 +70,6 @@ export class EditInformationComponent {
       return;
     }
 
-    const phoneRegex = /^(0|\+84)(\d{9})$/;
     if (!phoneRegex.test(this.phone)) {
       this.toastr.warning('Số điện thoại không hợp lệ (VD: 098xxxxxxx)');
       return;

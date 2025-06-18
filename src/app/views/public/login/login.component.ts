@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Users } from '../../../mock/user.mock';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
+import { emailRegex, phoneRegex } from '../../../core/utils/regex.util';
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
@@ -21,10 +21,7 @@ export class LoginComponent {
   onLogin() {
     const loginValue = this.loginType === 'email' ? this.email : this.phone;
     const loginField = this.loginType === 'email' ? 'email' : 'phone';
-    if (!loginValue || !this.pass) {
-      this.toastr.warning('Vui lòng nhập đầy đủ thông tin');
-      return;
-    }
+
     const user = this.users.find(
       (u) => u[loginField] === loginValue && u.pass === this.pass
     );
@@ -36,7 +33,14 @@ export class LoginComponent {
         window.location.reload();
       });
     } else {
-      this.toastr.error('Sai thông tin đăng nhập');
+      if (!loginValue || !this.pass) {
+        this.toastr.warning('Vui lòng nhập đầy đủ thông tin');
+        return;
+      } else if (!emailRegex.test(loginValue) && !phoneRegex.test(loginValue)) {
+        this.toastr.warning('Vui lòng nhập đúng định dạng');
+      } else {
+        this.toastr.error('Sai thông tin đăng nhập');
+      }
     }
 
     // for (let i = 0; i < this.users.length; i++) {

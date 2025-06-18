@@ -17,6 +17,7 @@ import { OrderHistoryComponent } from './views/customer/order-history/order-hist
 import { EditInformationComponent } from './views/customer/edit-information/edit-information.component';
 import { AdvancedComponent } from './views/customer/advanced/advanced.component';
 import { OrderDetailComponent } from './views/customer/order-history/order-detail/order-detail.component';
+import { ForgetPasswordComponent } from './views/public/login/forget-password/forget-password.component';
 
 export const routes: Routes = [
   //Public routes
@@ -36,6 +37,8 @@ export const routes: Routes = [
   { path: 'viec-lam', component: ViecLamComponent },
   //cart/...
   { path: 'payment', component: PaymentNormalComponent },
+  //login/forget-password
+  { path: 'recover', component: ForgetPasswordComponent },
 
   //Customer routes
   {

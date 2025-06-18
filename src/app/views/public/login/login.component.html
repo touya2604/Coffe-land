@@ -29,25 +29,6 @@
         />
       </div>
       }
-      <div class="mb-3">
-        <label for="passInput" class="form-label">Mật khẩu: </label>
-        <input
-          class="form-control"
-          type="password"
-          id="passInput"
-          name="pass"
-          required
-          [(ngModel)]="pass"
-        />
-      </div>
-      <div class="mb-3">
-        <button class="btn btn-outline-success w-100" type="submit">
-          Đăng nhập
-        </button>
-      </div>
-      <div class="mb-3">
-        <button class="btn btn-outline-danger w-100">Quên mật khẩu</button>
-      </div>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -74,6 +55,31 @@
         <label class="form-check-label" for="radioDefault2">
           Sử dụng số điện thoại
         </label>
+      </div>
+      <div class="mb-3">
+        <label for="passInput" class="form-label">Mật khẩu: </label>
+        <input
+          class="form-control"
+          type="password"
+          id="passInput"
+          name="pass"
+          required
+          [(ngModel)]="pass"
+        />
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-outline-success w-100" type="submit">
+          Đăng nhập
+        </button>
+      </div>
+      <div class="mb-3">
+        <button
+          class="btn btn-outline-danger w-100"
+          type="button"
+          routerLink="/recover"
+        >
+          Quên mật khẩu
+        </button>
       </div>
     </form>
   </div>
