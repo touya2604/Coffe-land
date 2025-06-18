@@ -4,3 +4,9 @@ export function randomNumber(): string {
     .padStart(10, '0');
   return `CFL${randomDigit}`;
 }
+export function randomId(): string {
+  const randomId = Math.floor(Math.random() * 1_000)
+    .toString()
+    .padStart(2, '0');
+  return `U${randomId}`;
+}
