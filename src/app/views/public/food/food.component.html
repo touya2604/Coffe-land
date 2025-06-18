@@ -4,255 +4,89 @@
   (newCheck)="onHandleClosePopup()"
 ></app-product-detail>
 }
-<div class="container my-4">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-9">
-      <div class="row mb-5">
-        <div class="container best-seller">
-          <div class="container d-flex justify-content-between">
-            <h1 class="mb-4 text-primary">Bánh ngọt</h1>
-            <div class="customer-carousel-btn-group">
-              <button
-                class="btn mx-2 customer-carousel-btn"
-                type="button"
-                data-bs-target="#foodCarousel"
-                data-bs-slide="prev"
-              >
-                <span
-                  class="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-              </button>
-              <button
-                class="btn mx-2 customer-carousel-btn"
-                type="button"
-                data-bs-target="#foodCarousel"
-                data-bs-slide="next"
-              >
-                <span
-                  class="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-              </button>
-            </div>
-          </div>
-          <div
-            id="foodCarousel"
-            class="carousel slide"
-            data-bs-ride="carousel"
-            data-bs-interval="4000"
-          >
-            <div class="carousel-inner">
-              @for (group of groupedPastries; let i = $index; track i){
-              <div class="carousel-item" [class.active]="i === 0">
-                <div class="row mx-auto">
-                  @for(product of group; track product.id){
-                  <div class="col-md-3">
-                    <div class="card h-100 shadow-sm border-0 rounded-4">
-                      <figure>
-                        <img
-                          [src]="product.img"
-                          class="card-img-top p-2 rounded-4"
-                          alt="..."
-                          style="height: 200px; cursor: pointer"
-                          (click)="onHandleViewDetail(product.id)"
-                        />
-                      </figure>
+    <div class="col-2 bg-light-subtle rounded border-end">
+      <div class="my-3">
+        <button
+          type="button"
+          class="btn border-0 border-bottom shadow-none w-100 fs-5"
+          [ngClass]="{
+            'btn-outline-primary': checkValueSide !== 'banh-ngot',
+            ' btn-primary': checkValueSide === 'banh-ngot'
+          }"
+          (click)="checkValueSide = 'banh-ngot'; onUpdate()"
+        >
+          Bánh ngọt
+        </button>
+      </div>
+      <div class="my-3">
+        <button
+          type="button"
+          class="btn border-0 border-bottom shadow-none w-100 fs-5"
+          [ngClass]="{
+            'btn-outline-primary': checkValueSide !== 'bua-nhe',
+            'btn-primary': checkValueSide === 'bua-nhe'
+          }"
+          (click)="checkValueSide = 'bua-nhe'; onUpdate()"
+        >
+          Bữa nhẹ
+        </button>
+      </div>
+      <div class="my-3">
+        <button
+          type="button"
+          class="btn border-0 border-bottom shadow-none w-100 fs-5"
+          [ngClass]="{
+            'btn-outline-primary': checkValueSide !== 'other',
+            'btn-primary': checkValueSide === 'other'
+          }"
+          (click)="checkValueSide = 'other'; onUpdate()"
+        >
+          Món ăn khác
+        </button>
+      </div>
+    </div>
+    <div class="col-10 mt-4">
+      @for (group of grouped; let i = $index; track i){
+      <div [class.active]="i === 0">
+        <div class="row">
+          @for(product of group; track product.id){
+          <div class="col-md-3 mb-3">
+            <div class="card h-100 shadow-sm border-0 rounded-4 w-100">
+              <figure>
+                <img
+                  [src]="product.img"
+                  class="card-img-top p-2 rounded-4"
+                  alt="..."
+                  style="height: 200px; cursor: pointer"
+                  (click)="onHandleViewDetail(product.id)"
+                />
+              </figure>
 
-                      <div class="card-body p-2 text-center d-flex flex-column">
-                        <h6 class="card-title mb-2 fw-bold">
-                          {{ product.name }}
-                        </h6>
-                        <p class="card-text mb-2 text-primary fw-semibold">
-                          Giá:
-                          {{
-                            product.price
-                              | currency : "VND" : "symbol" : "1.0-0"
-                          }}
-                        </p>
-                        <div class="mt-auto">
-                          <button
-                            class="btn btn-sm btn-outline-primary rounded-pill"
-                            type="button"
-                          >
-                            Xem chi tiết
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  }
+              <div class="card-body p-2 text-center d-flex flex-column">
+                <h6 class="card-title mb-2 fw-bold">
+                  {{ product.name }}
+                </h6>
+                <p class="card-text mb-2 text-primary fw-semibold">
+                  Giá:
+                  {{ product.price | currency : "VND" : "symbol" : "1.0-0" }}
+                </p>
+                <div class="mt-auto">
+                  <button
+                    class="btn btn-sm btn-outline-primary rounded-pill"
+                    type="button"
+                  >
+                    Xem chi tiết
+                  </button>
                 </div>
               </div>
-              }
             </div>
           </div>
+          }
         </div>
       </div>
-      <div class="row mb-5">
-        <div class="container best-seller">
-          <div class="container d-flex justify-content-between">
-            <h1 class="mb-4 text-primary">Bữa nhẹ</h1>
-            <div class="customer-carousel-btn-group">
-              <button
-                class="btn mx-2 customer-carousel-btn"
-                type="button"
-                data-bs-target="#foodCarousel"
-                data-bs-slide="prev"
-              >
-                <span
-                  class="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-              </button>
-              <button
-                class="btn mx-2 customer-carousel-btn"
-                type="button"
-                data-bs-target="#foodCarousel"
-                data-bs-slide="next"
-              >
-                <span
-                  class="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-              </button>
-            </div>
-          </div>
-          <div
-            id="foodCarousel"
-            class="carousel slide"
-            data-bs-ride="carousel"
-            data-bs-interval="4000"
-          >
-            <div class="carousel-inner">
-              @for (group of groupedLightMeals; let i = $index; track i){
-              <div class="carousel-item" [class.active]="i === 0">
-                <div class="row mx-auto">
-                  @for(product of group; track product.id){
-                  <div class="col-md-3">
-                    <div class="card h-100 shadow-sm border-0 rounded-4">
-                      <figure>
-                        <img
-                          [src]="product.img"
-                          class="card-img-top p-2 rounded-4"
-                          alt="..."
-                          style="height: 200px; cursor: pointer"
-                          (click)="onHandleViewDetail(product.id)"
-                        />
-                      </figure>
-
-                      <div class="card-body p-2 text-center d-flex flex-column">
-                        <h6 class="card-title mb-2 fw-bold">
-                          {{ product.name }}
-                        </h6>
-                        <p class="card-text mb-2 text-primary fw-semibold">
-                          Giá:
-                          {{
-                            product.price
-                              | currency : "VND" : "symbol" : "1.0-0"
-                          }}
-                        </p>
-                        <div class="mt-auto">
-                          <button
-                            class="btn btn-sm btn-outline-primary rounded-pill"
-                            type="button"
-                          >
-                            Xem chi tiết
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  }
-                </div>
-              </div>
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-5">
-        <div class="container best-seller">
-          <div class="container d-flex justify-content-between">
-            <h1 class="mb-4 text-primary">Món ăn kèm</h1>
-            <div class="customer-carousel-btn-group">
-              <button
-                class="btn mx-2 customer-carousel-btn"
-                type="button"
-                data-bs-target="#foodCarousel"
-                data-bs-slide="prev"
-              >
-                <span
-                  class="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-              </button>
-              <button
-                class="btn mx-2 customer-carousel-btn"
-                type="button"
-                data-bs-target="#foodCarousel"
-                data-bs-slide="next"
-              >
-                <span
-                  class="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-              </button>
-            </div>
-          </div>
-          <div
-            id="foodCarousel"
-            class="carousel slide"
-            data-bs-ride="carousel"
-            data-bs-interval="4000"
-          >
-            <div class="carousel-inner">
-              @for (group of groupedSides; let i = $index; track i){
-              <div class="carousel-item" [class.active]="i === 0">
-                <div class="row mx-auto">
-                  @for(product of group; track product.id){
-                  <div class="col-md-3">
-                    <div class="card h-100 shadow-sm border-0 rounded-4">
-                      <figure>
-                        <img
-                          [src]="product.img"
-                          class="card-img-top p-2 rounded-4"
-                          alt="..."
-                          style="height: 200px; cursor: pointer"
-                          (click)="onHandleViewDetail(product.id)"
-                        />
-                      </figure>
-
-                      <div class="card-body p-2 text-center d-flex flex-column">
-                        <h6 class="card-title mb-2 fw-bold">
-                          {{ product.name }}
-                        </h6>
-                        <p class="card-text mb-2 text-primary fw-semibold">
-                          Giá:
-                          {{
-                            product.price
-                              | currency : "VND" : "symbol" : "1.0-0"
-                          }}
-                        </p>
-                        <div class="mt-auto">
-                          <button
-                            class="btn btn-sm btn-outline-primary rounded-pill"
-                            type="button"
-                          >
-                            Xem chi tiết
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  }
-                </div>
-              </div>
-              }
-            </div>
-          </div>
-        </div>
-      </div>
+      }
     </div>
   </div>
 </div>
