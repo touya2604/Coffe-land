@@ -78,4 +78,8 @@ goToLogin() {
 
 ---
 
-Nếu bạn muốn mình đóng gói thành file `.md` sẵn hoặc mở rộng thêm `RouteGuard`, `Child Routes` hoặc `params`, mình có thể thêm vào ngay.
+Nếu bạn đang đứng ở /customer/order-history, thì đoạn routerLink nên viết:
+[routerLink]="['order-detail', orderHistory[i].id]"
+Thay vì:
+[routerLink]="['/customer/order-history/order-detail', orderHistory[i].id]"
+✅ Vì khi đang ở trong order-history, bạn chỉ cần điền relative path (không bắt đầu bằng /).

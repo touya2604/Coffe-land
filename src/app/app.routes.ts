@@ -65,7 +65,6 @@ export const routes: Routes = [
         path: 'nang-cao',
         component: AdvancedComponent,
       },
-
       {
         path: 'order-detail/:id',
         component: OrderDetailComponent,

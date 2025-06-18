@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { Product } from '../../../model/product.model';
 import { CurrencyPipe, DatePipe, JsonPipe } from '@angular/common';
 import { orderHistory } from '../../../model/orderHistory.model';
