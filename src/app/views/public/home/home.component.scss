@@ -1,5 +1,5 @@
 .bg-light-brown {
-  background-color: #1a8754;
+  background-color: #900;
 }
 h1 {
   color: white;
@@ -45,4 +45,10 @@ img {
 figure:hover img {
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
+}
+.transIcon {
+  transition: transform 0.3s ease;
+}
+.buttonIcon:hover .transIcon {
+  transform: translateX(20px);
 }

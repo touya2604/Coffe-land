@@ -7,10 +7,18 @@ import { FormsModule } from '@angular/forms';
 import { ProductDetailComponent } from '../../../shared/product-detail/product-detail.component';
 import { CartComponent } from '../cart/cart.component';
 import { chunkArray } from '../../../core/utils/carousel-groups.util';
+import { Product } from '../../../model/product.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule, ProductDetailComponent, CartComponent, CurrencyPipe],
+  imports: [
+    FormsModule,
+    ProductDetailComponent,
+    CartComponent,
+    CurrencyPipe,
+    RouterLink,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -20,6 +28,9 @@ export class HomeComponent {
   drinks = Drinks;
   check = false;
   selectedId!: string;
+  //Limit product of each Data to 11
+  newFoods: Product[] = [];
+  newDrinks: Product[] = [];
   onHandleViewDetail(id: string) {
     this.check = true;
     this.selectedId = id;
@@ -35,8 +46,17 @@ export class HomeComponent {
     const popularProduct = this.products.filter(
       (product) => product.isPopular === true
     );
+
+    for (let i = 0; i < 11; i++) {
+      if (i < this.foods.length && i < this.drinks.length) {
+        this.newFoods.push(this.foods[i]);
+        this.newDrinks.push(this.drinks[i]);
+      } else {
+        continue;
+      }
+    }
     this.groupedProducts = chunkArray(popularProduct, 4);
-    this.groupedFood = chunkArray(this.foods, 4);
-    this.groupedDrink = chunkArray(this.drinks, 4);
+    this.groupedFood = chunkArray(this.newFoods, 4);
+    this.groupedDrink = chunkArray(this.newDrinks, 4);
   }
 }

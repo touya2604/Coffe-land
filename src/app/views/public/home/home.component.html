@@ -75,18 +75,13 @@
         </button>
       </div>
     </div>
-    <div
-      id="bestSellerCarousel"
-      class="carousel slide"
-      data-bs-ride="carousel"
-      data-bs-interval="4000"
-    >
+    <div id="bestSellerCarousel" class="carousel slide" data-bs-wrap="false">
+      <!-- data-bs-wrap: Không lặp lại -->
       <div class="carousel-inner">
         @for (group of groupedProducts; let i = $index; track i) {
         <div class="carousel-item" [class.active]="i === 0">
           <div class="row mx-auto">
-            @for (product of group; track product.id) {
-
+            @for (product of group; let j = $index;track product.id) {
             <div class="col-6 col-md-3 mb-4">
               <div class="card h-100 shadow-sm border-0 rounded-4">
                 <figure>
@@ -124,7 +119,7 @@
   </h1>
   <div class="container best-seller">
     <div class="container d-flex justify-content-between">
-      <h2>Bánh</h2>
+      <h2>Sản phẩm</h2>
       <div class="customer-carousel-btn-group">
         <button
           class="btn mx-2 customer-carousel-btn"
@@ -144,17 +139,12 @@
         </button>
       </div>
     </div>
-    <div
-      id="foodCarousel"
-      class="carousel slide"
-      data-bs-ride="carousel"
-      data-bs-interval="4000"
-    >
+    <div id="foodCarousel" class="carousel slide" data-bs-wrap="false">
       <div class="carousel-inner">
         @for (group of groupedFood; let i = $index; track i){
         <div class="carousel-item" [class.active]="i === 0">
           <div class="row mx-auto">
-            @for(product of group; track product.id){
+            @for(product of group; let j = $index;track product.id){
             <div class="col-md-3">
               <div class="card h-100 shadow-sm border-0 rounded-4">
                 <figure>
@@ -182,6 +172,15 @@
                 </div>
               </div>
             </div>
+            } @if (i === groupedFood.length - 1){
+            <div class="col-3 text-center my-auto">
+              <button
+                class="btn btn-primary px-5 buttonIcon shadow"
+                routerLink="/foods"
+              >
+                Xem thêm <i class="bi bi-arrow-right transIcon ms-2"></i>
+              </button>
+            </div>
             }
           </div>
         </div>
@@ -196,7 +195,7 @@
   </h1>
   <div class="container best-seller mt-5">
     <div class="container d-flex justify-content-between">
-      <h2>Đồ uống</h2>
+      <h2>Sản phẩm</h2>
       <div class="customer-carousel-btn-group">
         <button
           class="btn mx-2 customer-carousel-btn"
@@ -216,12 +215,7 @@
         </button>
       </div>
     </div>
-    <div
-      id="drinkCarousel"
-      class="carousel slide"
-      data-bs-ride="carousel"
-      data-bs-interval="4000"
-    >
+    <div id="drinkCarousel" class="carousel slide" data-bs-wrap="false">
       <div class="carousel-inner">
         @for (group of groupedDrink; let i = $index;track i){
         <div class="carousel-item" [class.active]="i === 0">
@@ -253,6 +247,15 @@
                   </button>
                 </div>
               </div>
+            </div>
+            } @if (i === groupedDrink.length -1){
+            <div class="col-3 text-center my-auto">
+              <button
+                class="btn btn-primary px-5 buttonIcon shadow"
+                routeLink="/drinks"
+              >
+                Xem thêm <i class="bi bi-arrow-right transIcon ms-2"></i>
+              </button>
             </div>
             }
           </div>
