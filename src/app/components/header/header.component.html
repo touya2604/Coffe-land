@@ -108,7 +108,7 @@ Nếu có tham số hoặc muốn truyền biến, dùng [routerLink]="['/cart',
                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
               />
             </svg>
-          </button>
+          </button>green day holiday instrumentaldek
         </form> -->
         <!-- <div class="me-2">
           <i
@@ -117,6 +117,7 @@ Nếu có tham số hoặc muốn truyền biến, dùng [routerLink]="['/cart',
             routerLinkActive="router-link-active"
           ></i>
         </div> -->
+        @if (!userCurrent){
         <div class="m-4 position-fixed bottom-0 end-0 z-3">
           <i
             class="bi bi-cart cartIcon fs-2 btn btn-outline-primary rounded-circle px-5z-3"
@@ -124,7 +125,6 @@ Nếu có tham số hoặc muốn truyền biến, dùng [routerLink]="['/cart',
             routerLinkActive="router-link-active"
           ></i>
         </div>
-        @if (!userCurrent){
 
         <button
           [routerLink]="['/login']"
@@ -141,6 +141,13 @@ Nếu có tham số hoặc muốn truyền biến, dùng [routerLink]="['/cart',
           Đăng ký
         </button>
         }@else {
+        <div class="m-4 position-fixed bottom-0 end-0 z-3">
+          <i
+            class="bi bi-cart cartIcon fs-2 btn btn-outline-primary rounded-circle px-5z-3"
+            [routerLink]="['/customer/cart']"
+            routerLinkActive="router-link-active"
+          ></i>
+        </div>
         <button
           [routerLink]="['/customer/thong-tin-ca-nhan']"
           type="button"

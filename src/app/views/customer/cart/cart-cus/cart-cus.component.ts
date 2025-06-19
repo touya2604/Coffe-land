@@ -1,36 +1,33 @@
 import { Component, inject } from '@angular/core';
-import { type Product } from '../../../model/product.model';
+import { type Product } from '../../../../model/product.model';
 import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { User } from '../../../model/user.model';
+import { User } from '../../../../model/user.model';
 import { ToastrService } from 'ngx-toastr';
-
 @Component({
-  selector: 'app-cart',
-  standalone: true,
+  selector: 'app-cart-cus',
   imports: [CurrencyPipe, FormsModule, RouterLink],
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss',
+  templateUrl: './cart-cus.component.html',
+  styleUrl: './cart-cus.component.scss',
 })
-export class CartComponent {
-  // productCart: Product[] = [];
+export class CartCusComponent {
   constructor(private router: Router) {}
   productCart: (Product & { quantity?: number })[] = []; //Danh sách sản phẩm
-  // productCart = [];
 
   toastr = inject(ToastrService);
 
   ngOnInit() {
-    const product = localStorage.getItem('cart');
+    const product = localStorage.getItem('UserCart');
 
     if (product) {
       this.productCart = JSON.parse(product);
     }
   }
+
   onDeleteItemCart(id: string) {
     this.productCart = this.productCart.filter((product) => product.id !== id);
-    localStorage.setItem('cart', JSON.stringify(this.productCart));
+    localStorage.setItem('UserCart', JSON.stringify(this.productCart));
   }
   onIncrease(id: string) {
     const product = this.productCart.find((p) => p.id === id);
@@ -40,7 +37,7 @@ export class CartComponent {
       product.quantity < 99
     ) {
       product.quantity += 1;
-      localStorage.setItem('cart', JSON.stringify(this.productCart));
+      localStorage.setItem('UserCart', JSON.stringify(this.productCart));
     }
   }
   onDecrease(id: string) {
@@ -51,7 +48,7 @@ export class CartComponent {
       product.quantity > 1
     ) {
       product.quantity -= 1;
-      localStorage.setItem('cart', JSON.stringify(this.productCart));
+      localStorage.setItem('UserCart', JSON.stringify(this.productCart));
     }
   }
   onHandleInputQuantity(id: string, event: Event) {
@@ -67,7 +64,7 @@ export class CartComponent {
         inputQuantity = 99;
       }
       product.quantity = inputQuantity;
-      localStorage.setItem('cart', JSON.stringify(this.productCart));
+      localStorage.setItem('UserCart', JSON.stringify(this.productCart));
     }
   }
   get totalPrice() {
@@ -82,7 +79,7 @@ export class CartComponent {
 
     if (this.productCart.length > 0) {
       localStorage.setItem('orderItem', JSON.stringify(this.productCart));
-      this.router.navigate(['/payment']);
+      this.router.navigate(['/customer/payment']);
     } else {
       this.toastr.warning('Vui lòng thêm sản phẩm vào giỏ hàng');
     }
