@@ -15,7 +15,7 @@
             'btn-outline-primary': checkValueSide !== 'banh-ngot',
             ' btn-primary': checkValueSide === 'banh-ngot'
           }"
-          (click)="checkValueSide = 'banh-ngot'; onUpdate()"
+          (click)="checkValueSide = 'banh-ngot'; onUpdate(); onReset()"
         >
           Bánh ngọt
         </button>
@@ -28,7 +28,7 @@
             'btn-outline-primary': checkValueSide !== 'bua-nhe',
             'btn-primary': checkValueSide === 'bua-nhe'
           }"
-          (click)="checkValueSide = 'bua-nhe'; onUpdate()"
+          (click)="checkValueSide = 'bua-nhe'; onUpdate(); onReset()"
         >
           Bữa nhẹ
         </button>
@@ -41,13 +41,36 @@
             'btn-outline-primary': checkValueSide !== 'other',
             'btn-primary': checkValueSide === 'other'
           }"
-          (click)="checkValueSide = 'other'; onUpdate()"
+          (click)="checkValueSide = 'other'; onUpdate(); onReset()"
         >
           Món ăn khác
         </button>
       </div>
     </div>
     <div class="col-10 mt-4">
+      <div class="d-flex align-items-center my-2">
+        <div class="d-flex flex-row justify-content-between column-gap-3">
+          <select
+            name="priceSort"
+            id="priceSort"
+            class="form-select"
+            [(ngModel)]="priceSort"
+            (change)="onUpdate()"
+          >
+            <option value="default">Mặc định</option>
+            <option value="giam">Giá giảm dần</option>
+            <option value="tang">Giá tăng dần</option>
+          </select>
+        </div>
+        <input
+          id="searchBar"
+          [(ngModel)]="searchItem"
+          type="search"
+          class="form-control w-25 ms-auto"
+          placeholder="Tìm kiếm sản phẩm"
+          (input)="onUpdate()"
+        />
+      </div>
       @for (group of grouped; let i = $index; track i){
       <div [class.active]="i === 0">
         <div class="row">
