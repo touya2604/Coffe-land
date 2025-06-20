@@ -50,5 +50,6 @@ export class SidebarComponent {
     else if (url.includes('order-history')) this.check = 'history';
     else if (url.includes('edit')) this.check = 'edit';
     else if (url.includes('nang-cao')) this.check = 'nang-cao';
+    else if (url.includes('voucher')) this.check = 'voucher';
   }
 }

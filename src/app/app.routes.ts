@@ -19,6 +19,7 @@ import { AdvancedComponent } from './views/customer/advanced/advanced.component'
 import { OrderDetailComponent } from './views/customer/order-history/order-detail/order-detail.component';
 import { ForgetPasswordComponent } from './views/public/login/forget-password/forget-password.component';
 import { CartCusComponent } from './views/customer/cart/cart-cus/cart-cus.component';
+import { VouchersComponent } from './views/customer/vouchers/vouchers.component';
 
 export const routes: Routes = [
   //Public routes
@@ -73,6 +74,10 @@ export const routes: Routes = [
       {
         path: 'cart',
         component: CartCusComponent,
+      },
+      {
+        path: 'voucher',
+        component: VouchersComponent,
       },
     ],
   },

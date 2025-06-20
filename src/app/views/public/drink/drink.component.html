@@ -13,10 +13,11 @@
           class="btn border-0 border-bottom shadow-none w-100 fs-5"
           [ngClass]="{
             'btn-outline-primary': checkValueSide !== 'ca-phe',
-            ' btn-primary': checkValueSide === 'ca-phe'
+            'btn-primary': checkValueSide === 'ca-phe'
           }"
           (click)="checkValueSide = 'ca-phe'; onUpdate(); onReset()"
         >
+          <i class="bi bi-cup-hot me-2"></i>
           Cà phê
         </button>
       </div>
@@ -30,6 +31,7 @@
           }"
           (click)="checkValueSide = 'tra'; onUpdate(); onReset()"
         >
+          <i class="bi bi-cup me-2"></i>
           Trà
         </button>
       </div>
@@ -43,10 +45,12 @@
           }"
           (click)="checkValueSide = 'other'; onUpdate(); onReset()"
         >
+          <i class="bi bi-cup-straw me-2"></i>
           Đồ uống khác
         </button>
       </div>
     </div>
+
     <div class="col-10 mt-4">
       <div class="d-flex align-items-center my-2">
         <div>

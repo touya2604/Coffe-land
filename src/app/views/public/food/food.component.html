@@ -13,10 +13,11 @@
           class="btn border-0 border-bottom shadow-none w-100 fs-5"
           [ngClass]="{
             'btn-outline-primary': checkValueSide !== 'banh-ngot',
-            ' btn-primary': checkValueSide === 'banh-ngot'
+            'btn-primary': checkValueSide === 'banh-ngot'
           }"
           (click)="checkValueSide = 'banh-ngot'; onUpdate(); onReset()"
         >
+          <i class="bi bi-cake2 me-2"></i>
           Bánh ngọt
         </button>
       </div>
@@ -30,6 +31,7 @@
           }"
           (click)="checkValueSide = 'bua-nhe'; onUpdate(); onReset()"
         >
+          <i class="bi bi-cup-straw me-2"></i>
           Bữa nhẹ
         </button>
       </div>
@@ -43,10 +45,12 @@
           }"
           (click)="checkValueSide = 'other'; onUpdate(); onReset()"
         >
+          <i class="bi bi-egg-fried me-2"></i>
           Món ăn khác
         </button>
       </div>
     </div>
+
     <div class="col-10 mt-4">
       <div class="d-flex align-items-center my-2">
         <div class="d-flex flex-row justify-content-between column-gap-3">

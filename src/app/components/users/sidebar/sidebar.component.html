@@ -4,40 +4,44 @@
     type="button"
     class="btn text-start"
     [ngClass]="{
-      'btn-success': check === 'thong-tin',
-      'btn-outline-success': check !== 'thong-tin'
+      'btn-primary': check === 'thong-tin',
+      'btn-outline-primary': check !== 'thong-tin'
     }"
   >
-    Thông tin cá nhân
+    <i class="bi bi-person-fill me-2"></i>Thông tin cá nhân
   </button>
   <button
     routerLink="/customer/order-history"
     type="button"
     class="btn text-start"
     [ngClass]="{
-      'btn-success': check === 'history',
-      'btn-outline-success': check !== 'history'
+      'btn-primary': check === 'history',
+      'btn-outline-primary': check !== 'history'
     }"
   >
-    Lịch sử mua đồ
+    <i class="bi bi-journals me-2"></i>Lịch sử mua đồ
   </button>
   <button
     routerLink="/customer/edit"
     type="button"
     class="btn text-start"
     [ngClass]="{
-      'btn-success': check === 'edit',
-      'btn-outline-success': check !== 'edit'
+      'btn-primary': check === 'edit',
+      'btn-outline-primary': check !== 'edit'
     }"
   >
-    Chỉnh sửa thông tin
+    <i class="bi bi-pencil-square me-2"></i>Chỉnh sửa thông tin
   </button>
   <button
-    routerLink="/customer/nang-cao"
+    routerLink="/customer/voucher"
     type="button"
-    class="btn text-start disabled"
+    class="btn text-start"
+    [ngClass]="{
+      'btn-primary': check === 'voucher',
+      'btn-outline-primary': check !== 'voucher'
+    }"
   >
-    Nâng cao
+    <i class="bi bi-tags-fill me-2"></i>Mã giảm giá/ Ưu đãi
   </button>
   <button type="button" class="btn text-start disabled">
     Upcoming Features
