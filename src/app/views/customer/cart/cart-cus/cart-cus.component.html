@@ -1,3 +1,6 @@
+@if(check){
+<app-vouchers (newCheck)="onHadleClosePopup()"></app-vouchers>
+}
 <div class="container mt-3">
   <div class="row">
     <table class="table table-bordered align-middle">
@@ -116,7 +119,11 @@
       }
     </div>
     <form>
-      <button class="btn btn-outline-warning w-100 mb-3">
+      <button
+        class="btn btn-outline-warning w-100 mb-3"
+        type="button"
+        (click)="onPopupVoucher()"
+      >
         Sử dụng voucher
       </button>
       <button

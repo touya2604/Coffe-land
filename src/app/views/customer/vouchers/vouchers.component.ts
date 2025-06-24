@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { SidebarComponent } from '../../../components/users/sidebar/sidebar.component';
 import { Vouchers } from '../../../mock/voucher.mock';
 import { parseDate } from '../../../core/function/convertDate';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-vouchers',
-  imports: [SidebarComponent],
+  imports: [SidebarComponent, NgClass],
   templateUrl: './vouchers.component.html',
   styleUrl: './vouchers.component.scss',
 })

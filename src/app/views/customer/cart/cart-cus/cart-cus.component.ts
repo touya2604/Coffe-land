@@ -5,9 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { User } from '../../../../model/user.model';
 import { ToastrService } from 'ngx-toastr';
+import { VouchersComponent } from '../vouchers/vouchers.component';
 @Component({
   selector: 'app-cart-cus',
-  imports: [CurrencyPipe, FormsModule, RouterLink],
+  imports: [CurrencyPipe, FormsModule, RouterLink, VouchersComponent],
   templateUrl: './cart-cus.component.html',
   styleUrl: './cart-cus.component.scss',
 })
@@ -16,7 +17,7 @@ export class CartCusComponent {
   productCart: (Product & { quantity?: number })[] = []; //Danh sách sản phẩm
 
   toastr = inject(ToastrService);
-
+  check = false;
   ngOnInit() {
     const product = localStorage.getItem('UserCart');
 
@@ -83,5 +84,11 @@ export class CartCusComponent {
     } else {
       this.toastr.warning('Vui lòng thêm sản phẩm vào giỏ hàng');
     }
+  }
+  onPopupVoucher() {
+    this.check = true;
+  }
+  onHadleClosePopup() {
+    this.check = false;
   }
 }
