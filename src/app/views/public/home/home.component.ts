@@ -23,7 +23,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  products = Products;
+  categoriesFood = ['Bánh ngọt', 'Bữa nhẹ', 'Món ăn khác'];
+  categoriesDrink = ['Cà phê', 'Trà', 'Đồ uống khác'];
   foods = Foods;
   drinks = Drinks;
   check = false;
@@ -31,6 +32,8 @@ export class HomeComponent {
   //Limit product of each Data to 11
   newFoods: Product[] = [];
   newDrinks: Product[] = [];
+  popularFood: Product[] = [];
+  popularDrink: Product[] = [];
   onHandleViewDetail(id: string) {
     this.check = true;
     this.selectedId = id;
@@ -39,11 +42,13 @@ export class HomeComponent {
     this.check = false;
   }
 
-  groupedProducts: any[][] = [];
+  groupedPopularFood: any[][] = [];
+  groupedPopularDrink: any[][] = [];
   groupedFood: any[][] = [];
   groupedDrink: any[][] = [];
   ngOnInit() {
-    const popularProduct = this.products.filter(
+    const popFood = this.foods.filter((product) => product.isPopular === true);
+    const popDrink = this.drinks.filter(
       (product) => product.isPopular === true
     );
 
@@ -55,8 +60,17 @@ export class HomeComponent {
         continue;
       }
     }
-    this.groupedProducts = chunkArray(popularProduct, 4);
-    this.groupedFood = chunkArray(this.newFoods, 4);
-    this.groupedDrink = chunkArray(this.newDrinks, 4);
+    for (let i = 0; i < 6; i++) {
+      if (i < this.foods.length && i < this.drinks.length) {
+        this.popularFood.push(popFood[i]);
+        this.popularDrink.push(popDrink[i]);
+      } else {
+        continue;
+      }
+    }
+    // this.groupedPopularFood = chunkArray(this.popularFood, 4);
+    // this.groupedPopularFood = chunkArray(this.popularFood, 4);
+    // this.groupedFood = chunkArray(this.newFoods, 4);
+    // this.groupedDrink = chunkArray(this.newDrinks, 4);
   }
 }
