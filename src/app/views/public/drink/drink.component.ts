@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Drinks } from '../../../mock/drink.mock';
 import { chunkArray } from '../../../core/utils/carousel-groups.util';
 import { CurrencyPipe, NgClass } from '@angular/common';
 import { ProductDetailComponent } from '../../../shared/product-detail/product-detail.component';
 import { FormsModule } from '@angular/forms';
 import { removeVietnameseTones } from '../../../core/function/removeVietnameseTones';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-drink',
   imports: [CurrencyPipe, ProductDetailComponent, NgClass, FormsModule],
@@ -12,6 +13,7 @@ import { removeVietnameseTones } from '../../../core/function/removeVietnameseTo
   styleUrl: './drink.component.scss',
 })
 export class DrinkComponent {
+  router = inject(Router);
   drink = Drinks;
   check = false;
   selectedId!: string;
@@ -24,6 +26,13 @@ export class DrinkComponent {
   //sideBar
   checkValueSide: string = 'ca-phe';
   ngOnInit() {
+    const url = this.router.url;
+    if (url) {
+      if (url.includes('ca-phe')) this.checkValueSide = 'ca-phe';
+      else if (url.includes('tra')) this.checkValueSide = 'tra';
+      else if (url.includes('other')) this.checkValueSide = 'other';
+      this.onUpdate();
+    }
     const coffee = this.drink.filter((d) => d.category === 'Coffee');
     const tea = this.drink.filter((d) => d.category === 'Tea');
     const others = this.drink.filter((d) => d.category === 'Others');

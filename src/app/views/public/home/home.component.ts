@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Products } from '../../../mock/product.mock';
 import { CurrencyPipe, NgFor } from '@angular/common';
 import { Foods } from '../../../mock/food.mock';
@@ -8,7 +8,7 @@ import { ProductDetailComponent } from '../../../shared/product-detail/product-d
 import { CartComponent } from '../cart/cart.component';
 import { chunkArray } from '../../../core/utils/carousel-groups.util';
 import { Product } from '../../../model/product.model';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -23,8 +23,37 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  categoriesFood = ['Bánh ngọt', 'Bữa nhẹ', 'Món ăn khác'];
-  categoriesDrink = ['Cà phê', 'Trà', 'Đồ uống khác'];
+  router = inject(Router);
+  categoriesFood = [
+    {
+      name: 'Bánh ngọt',
+      slug: 'banh-ngot',
+    },
+    {
+      name: 'Bữa nhẹ',
+      slug: 'bua-nhe',
+    },
+    {
+      name: 'Món ăn khác',
+      slug: 'other',
+    },
+  ];
+
+  categoriesDrink = [
+    {
+      name: 'Cà phê',
+      slug: 'ca-phe',
+    },
+    {
+      name: 'Trà',
+      slug: 'tra',
+    },
+    {
+      name: 'Đồ uống khác',
+      slug: 'other',
+    },
+  ];
+
   foods = Foods;
   drinks = Drinks;
   check = false;
@@ -60,7 +89,7 @@ export class HomeComponent {
         continue;
       }
     }
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 8; i++) {
       if (i < this.foods.length && i < this.drinks.length) {
         this.popularFood.push(popFood[i]);
         this.popularDrink.push(popDrink[i]);
@@ -72,5 +101,11 @@ export class HomeComponent {
     // this.groupedPopularFood = chunkArray(this.popularFood, 4);
     // this.groupedFood = chunkArray(this.newFoods, 4);
     // this.groupedDrink = chunkArray(this.newDrinks, 4);
+  }
+  sendDataFood(cate: string) {
+    this.router.navigate(['/foods'], { queryParams: { category: cate } });
+  }
+  sendDataDrink(cate: string) {
+    this.router.navigate(['/drinks'], { queryParams: { category: cate } });
   }
 }

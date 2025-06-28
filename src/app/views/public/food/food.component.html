@@ -80,35 +80,35 @@
         <div class="row">
           @for(product of group; track product.id){
           <div class="col-md-3 mb-5">
-            <div class="card h-100 shadow-sm border-0 rounded-4 w-100">
-              <figure>
+            <figure>
+              <div class="card h-100 shadow border-0 rounded-4 w-75 mx-auto">
                 <img
                   [src]="product.img"
-                  class="card-img-top p-2 rounded-4"
+                  class="card-img-top p-2 rounded-4 img-thumbnail"
                   alt="..."
                   style="height: 200px; cursor: pointer"
                   (click)="onHandleViewDetail(product.id)"
                 />
-              </figure>
 
-              <div class="card-body p-2 text-center d-flex flex-column">
-                <h6 class="card-title mb-2 fw-bold">
-                  {{ product.name }}
-                </h6>
-                <p class="card-text mb-2 text-primary fw-semibold">
-                  Giá:
-                  {{ product.price | currency : "VND" : "symbol" : "1.0-0" }}
-                </p>
-                <div class="mt-auto">
-                  <button
-                    class="btn btn-sm btn-outline-primary rounded-pill"
-                    type="button"
-                  >
-                    Xem chi tiết
-                  </button>
+                <div class="card-body p-2 text-center d-flex flex-column">
+                  <h6 class="card-title mb-2 fw-bold">
+                    {{ product.name }}
+                  </h6>
+                  <p class="card-text mb-2 text-primary fw-semibold">
+                    Giá:
+                    {{ product.price | currency : "VND" : "symbol" : "1.0-0" }}
+                  </p>
+                  <div class="mt-auto">
+                    <button
+                      class="btn btn-sm btn-outline-primary rounded-pill"
+                      type="button"
+                    >
+                      Xem chi tiết
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
+            </figure>
           </div>
           }
         </div>
