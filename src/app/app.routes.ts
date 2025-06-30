@@ -8,7 +8,7 @@ import { NguonGocComponent } from './views/public/about/nguon-goc/nguon-goc.comp
 import { DichVuComponent } from './views/public/about/dich-vu/dich-vu.component';
 import { ViecLamComponent } from './views/public/about/viec-lam/viec-lam.component';
 import { ThongTinComponent } from './views/customer/thong-tin/thong-tin.component';
-import { authGuard } from './auth.guard';
+import { authGuard, authGuardPayment } from './auth.guard';
 import { PaymentComponent } from './views/customer/cart/payment/payment.component';
 import { PaymentNormalComponent } from './views/public/payment-normal/payment-normal.component';
 import { FoodComponent } from './views/public/food/food.component';
@@ -53,6 +53,7 @@ export const routes: Routes = [
       },
       {
         path: 'payment',
+        canActivate: [authGuardPayment],
         component: PaymentComponent,
       },
       {

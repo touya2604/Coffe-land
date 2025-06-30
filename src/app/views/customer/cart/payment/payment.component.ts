@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CurrencyPipe, DatePipe, NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { randomNumber } from '../../../../core/utils/random.util';
+import { User } from '../../../../model/user.model';
 
 @Component({
   selector: 'app-payment',
@@ -18,9 +19,10 @@ export class PaymentComponent {
   checkPayMethod: string = '';
   checkIn = new Date();
   ordersList: (Product & { quantity?: number })[] = [];
-
+  inputNote = '';
   ngOnInit() {
     const orders = localStorage.getItem('orderItem');
+
     if (orders) {
       this.ordersList = JSON.parse(orders);
     }
@@ -42,6 +44,7 @@ export class PaymentComponent {
       status: 'Đang giao hàng',
       total: this.totalPayMent,
       payMethod: this.checkPayMethod,
+      note: this.inputNote,
     });
     localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
     this.toastr.success('Đặt hàng thành công');

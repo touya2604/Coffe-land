@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../../../model/product.model';
-import { orderHistory } from '../../../../model/orderHistory.model';
+import { type orderHistory } from '../../../../model/orderHistory.model';
 import { CurrencyPipe, DatePipe } from '@angular/common';
-import { User } from '../../../../model/user.model';
+import { type User } from '../../../../model/user.model';
 
 @Component({
   selector: 'app-order-detail',
@@ -13,14 +13,16 @@ import { User } from '../../../../model/user.model';
 })
 export class OrderDetailComponent {
   constructor(private route: ActivatedRoute) {}
-  orderHistoryDetail: {
-    id: string;
-    orders: (Product & { quantity?: number })[];
-    check: Date;
-    status: string;
-    total: number;
-    payMethod: string;
-  }[] = [];
+  // orderHistoryDetail: {
+  //   id: string;
+  //   orders: (Product & { quantity?: number })[];
+  //   check: Date;
+  //   status: string;
+  //   total: number;
+  //   payMethod: string;
+  //   note: string;
+  // }[] = [];
+  orderHistoryDetail: orderHistory[] = [];
   orderDetailId = '';
   orderDetail: orderHistory | undefined;
   userCurrent: User | undefined;
@@ -41,5 +43,8 @@ export class OrderDetailComponent {
     this.orderDetail = this.orderHistoryDetail.find(
       (od) => od.id === this.orderDetailId
     );
+  }
+  get Note() {
+    return this.orderDetail?.note;
   }
 }

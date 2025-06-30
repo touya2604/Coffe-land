@@ -7,4 +7,5 @@ export interface orderHistory {
   total: number;
   id: string;
   payMethod: string;
+  note: string;
 }
