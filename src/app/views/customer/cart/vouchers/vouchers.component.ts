@@ -12,6 +12,7 @@ import { Voucher } from '../../../../model/voucher.model';
 })
 export class VouchersComponent {
   newCheck = output<void>();
+  voucherId = output<string>();
   notFormatVouchers = Vouchers;
   getNgayConLai(id: string) {
     const voucherCanTim = this.notFormatVouchers.find((p) => p.id === id);
@@ -26,5 +27,8 @@ export class VouchersComponent {
   );
   onClosePopup() {
     this.newCheck.emit();
+  }
+  useVoucher(id: string) {
+    this.voucherId.emit(id);
   }
 }

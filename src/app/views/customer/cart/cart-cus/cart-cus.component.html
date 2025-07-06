@@ -1,5 +1,8 @@
 @if(check){
-<app-vouchers (newCheck)="onHadleClosePopup()"></app-vouchers>
+<app-vouchers
+  (newCheck)="onHadleClosePopup()"
+  (voucherId)="VoucherDiscout($event)"
+></app-vouchers>
 }
 <div class="container mt-3">
   <div class="row">
@@ -93,7 +96,7 @@
         ></textarea>
         <label for="floatingTextarea2">Ghi chú</label>
       </div> -->
-      <div class="col-12">
+      <!-- <div class="col-12">
         @if (productCart.length>0){
         <p class="text-end">
           Tổng tiền: {{ totalPrice | currency : "VND" : "symbol" : "1.0-0" }}
@@ -105,14 +108,14 @@
         <p class="text-end">Tổng tiền: 0 VNĐ</p>
         <p class="text-end">Tiền ship: 0 VNĐ</p>
         }
-      </div>
+      </div> -->
     </div>
     <div>
       @if (productCart.length>0){
 
       <h2 class="text-end text-primary mb-3">
         Thành tiền:
-        {{ totalPrice + 20000 | currency : "VND" : "symbol" : "1.0-0" }}
+        {{ totalPrice | currency : "VND" : "symbol" : "1.0-0" }}
       </h2>
       } @else {
       <h2 class="text-end text-primary mb-3">Thành tiền: 0 VNĐ</h2>

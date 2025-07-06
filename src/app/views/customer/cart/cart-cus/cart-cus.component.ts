@@ -6,6 +6,8 @@ import { Router, RouterLink } from '@angular/router';
 import { User } from '../../../../model/user.model';
 import { ToastrService } from 'ngx-toastr';
 import { VouchersComponent } from '../vouchers/vouchers.component';
+import { Voucher } from '../../../../model/voucher.model';
+import { Vouchers } from '../../../../mock/voucher.mock';
 @Component({
   selector: 'app-cart-cus',
   imports: [CurrencyPipe, FormsModule, RouterLink, VouchersComponent],
@@ -15,12 +17,12 @@ import { VouchersComponent } from '../vouchers/vouchers.component';
 export class CartCusComponent {
   constructor(private router: Router) {}
   productCart: (Product & { quantity?: number })[] = []; //Danh sách sản phẩm
-
+  vouchers = Vouchers;
   toastr = inject(ToastrService);
   check = false;
+
   ngOnInit() {
     const product = localStorage.getItem('UserCart');
-
     if (product) {
       this.productCart = JSON.parse(product);
     }
@@ -90,5 +92,8 @@ export class CartCusComponent {
   }
   onHadleClosePopup() {
     this.check = false;
+  }
+  VoucherDiscout(id: string) {
+    const voucherUse = this.vouchers.find((v) => (v.id = id));
   }
 }

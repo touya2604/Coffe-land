@@ -41,7 +41,9 @@
           </div>
         </div>
         <div class="pe-4">
-          <button class="btn btn-primary">Sử dụng</button>
+          <button class="btn btn-primary" (click)="useVoucher(voucher.id)">
+            Sử dụng
+          </button>
         </div>
       </div>
     </div>
@@ -49,7 +51,11 @@
 
     <!-- Footer -->
     <div class="text-end pt-3 border-top">
-      <button type="button" class="btn btn-secondary" (click)="onClosePopup()">
+      <button
+        type="button"
+        class="btn btn-outline-primary px-3"
+        (click)="onClosePopup()"
+      >
         Đóng
       </button>
     </div>
